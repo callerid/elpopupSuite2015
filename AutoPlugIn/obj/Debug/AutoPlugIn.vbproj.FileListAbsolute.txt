@@ -1,0 +1,72 @@
+C:\Users\Grant\Documents\Projects\ELPopup\AutoPlugIn\bin\Debug\AutoPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup\AutoPlugIn\bin\Debug\AutoPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup\AutoPlugIn\bin\Debug\AutoPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup\AutoPlugIn\bin\Debug\CIDClass.dll
+C:\Users\Grant\Documents\Projects\ELPopup\AutoPlugIn\bin\Debug\CIDClass.pdb
+C:\Users\Grant\Documents\Projects\ELPopup\AutoPlugIn\bin\Debug\CIDClass.xml
+C:\Users\Grant\Documents\Projects\ELPopup\AutoPlugIn\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup\AutoPlugIn\obj\Debug\AutoPlugIn.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup\AutoPlugIn\obj\Debug\AutoPlugIn.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup\AutoPlugIn\obj\Debug\AutoPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup\AutoPlugIn\obj\Debug\AutoPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup\AutoPlugIn\obj\Debug\AutoPlugIn.pdb
+C:\Users\Grant\Desktop\ELPopup2010\AutoPlugIn\bin\Debug\AutoPlugIn.dll
+C:\Users\Grant\Desktop\ELPopup2010\AutoPlugIn\bin\Debug\AutoPlugIn.pdb
+C:\Users\Grant\Desktop\ELPopup2010\AutoPlugIn\bin\Debug\AutoPlugIn.xml
+C:\Users\Grant\Desktop\ELPopup2010\AutoPlugIn\bin\Debug\CIDClass.dll
+C:\Users\Grant\Desktop\ELPopup2010\AutoPlugIn\bin\Debug\CIDClass.pdb
+C:\Users\Grant\Desktop\ELPopup2010\AutoPlugIn\bin\Debug\CIDClass.xml
+C:\Users\Grant\Desktop\ELPopup2010\AutoPlugIn\obj\Debug\AutoPlugIn.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Desktop\ELPopup2010\AutoPlugIn\obj\Debug\AutoPlugIn.Resources.resources
+C:\Users\Grant\Desktop\ELPopup2010\AutoPlugIn\obj\Debug\AutoPlugIn.vbproj.GenerateResource.Cache
+C:\Users\Grant\Desktop\ELPopup2010\AutoPlugIn\obj\Debug\AutoPlugIn.dll
+C:\Users\Grant\Desktop\ELPopup2010\AutoPlugIn\obj\Debug\AutoPlugIn.xml
+C:\Users\Grant\Desktop\ELPopup2010\AutoPlugIn\obj\Debug\AutoPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\AutoPlugIn\bin\Debug\AutoPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\AutoPlugIn\bin\Debug\AutoPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\AutoPlugIn\bin\Debug\AutoPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\AutoPlugIn\bin\Debug\CIDClass.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\AutoPlugIn\bin\Debug\CIDClass.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\AutoPlugIn\bin\Debug\CIDClass.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\AutoPlugIn\obj\Debug\AutoPlugIn.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup2010\AutoPlugIn\obj\Debug\AutoPlugIn.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\AutoPlugIn\obj\Debug\AutoPlugIn.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup2010\AutoPlugIn\obj\Debug\AutoPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\AutoPlugIn\obj\Debug\AutoPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\AutoPlugIn\obj\Debug\AutoPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2015\AutoPlugIn\bin\Debug\AutoPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup2015\AutoPlugIn\bin\Debug\AutoPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2015\AutoPlugIn\bin\Debug\AutoPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup2015\AutoPlugIn\bin\Debug\CIDClass.dll
+C:\Users\Grant\Documents\Projects\ELPopup2015\AutoPlugIn\bin\Debug\CIDClass.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2015\AutoPlugIn\bin\Debug\CIDClass.xml
+C:\Users\Grant\Documents\Projects\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.pdb
+F:\Projects\Visual Studio Projects\ELPopup2015\AutoPlugIn\bin\Debug\AutoPlugIn.dll
+F:\Projects\Visual Studio Projects\ELPopup2015\AutoPlugIn\bin\Debug\AutoPlugIn.pdb
+F:\Projects\Visual Studio Projects\ELPopup2015\AutoPlugIn\bin\Debug\AutoPlugIn.xml
+F:\Projects\Visual Studio Projects\ELPopup2015\AutoPlugIn\bin\Debug\CIDClass.dll
+F:\Projects\Visual Studio Projects\ELPopup2015\AutoPlugIn\bin\Debug\CIDClass.pdb
+F:\Projects\Visual Studio Projects\ELPopup2015\AutoPlugIn\bin\Debug\CIDClass.xml
+F:\Projects\Visual Studio Projects\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.vbprojResolveAssemblyReference.cache
+F:\Projects\Visual Studio Projects\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.Resources.resources
+F:\Projects\Visual Studio Projects\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.vbproj.GenerateResource.Cache
+F:\Projects\Visual Studio Projects\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.dll
+F:\Projects\Visual Studio Projects\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.xml
+F:\Projects\Visual Studio Projects\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.pdb
+C:\Users\spenl\Desktop\ELPopup2015\AutoPlugIn\bin\Debug\AutoPlugIn.dll
+C:\Users\spenl\Desktop\ELPopup2015\AutoPlugIn\bin\Debug\AutoPlugIn.pdb
+C:\Users\spenl\Desktop\ELPopup2015\AutoPlugIn\bin\Debug\AutoPlugIn.xml
+C:\Users\spenl\Desktop\ELPopup2015\AutoPlugIn\bin\Debug\CIDClass.dll
+C:\Users\spenl\Desktop\ELPopup2015\AutoPlugIn\bin\Debug\CIDClass.pdb
+C:\Users\spenl\Desktop\ELPopup2015\AutoPlugIn\bin\Debug\CIDClass.xml
+C:\Users\spenl\Desktop\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.vbprojResolveAssemblyReference.cache
+C:\Users\spenl\Desktop\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.Resources.resources
+C:\Users\spenl\Desktop\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.vbproj.GenerateResource.Cache
+C:\Users\spenl\Desktop\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.dll
+C:\Users\spenl\Desktop\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.xml
+C:\Users\spenl\Desktop\ELPopup2015\AutoPlugIn\obj\Debug\AutoPlugIn.pdb

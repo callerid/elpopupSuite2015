@@ -1,0 +1,84 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="0496F61E-89BB-4C7E-B01D-87D69ACB1E19/f:IMyPlugIn.vb" caret="0" fromTop="0" />
+      <File id="9B7DA568-3936-49CF-851F-3C9605B41958/f:app.config" caret="0" fromTop="0" />
+      <File id="9B7DA568-3936-49CF-851F-3C9605B41958/f:URLSendPlugIn.vb" caret="0" fromTop="0" />
+      <File id="9B7DA568-3936-49CF-851F-3C9605B41958/f:Settings.vb" caret="2253" fromTop="23" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Options.vb" caret="5325" fromTop="19" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/d:My Project/f:Resources.Designer.vb" caret="862" fromTop="24" />
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/f:Module1.vb" caret="60" fromTop="2" />
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/d:Forms/f:AboutBox1.vb" caret="39" fromTop="1" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:DiagForm.Designer.vb" caret="3435" fromTop="20" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:PopBanner.Designer.vb" caret="1916" fromTop="20" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:OnHooks.vb" caret="360" fromTop="6" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.Designer.vb" caret="26898" fromTop="20" />
+      <File id="BBE27D02-1841-4A93-974E-4F3982AC244E/f:UnitBlockPlugIn.vb" caret="0" fromTop="0" />
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/d:Forms/f:AboutBox1.resx" caret="143448" fromTop="26" />
+      <File id="D0A92751-DD83-4E21-9418-BF5969467CF2/f:TextWritePlugIn.vb" caret="1219" fromTop="25" />
+      <File id="D0A92751-DD83-4E21-9418-BF5969467CF2/f:app.config" caret="296" fromTop="4" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/d:My Project/f:app.manifest" caret="0" fromTop="0" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:showNumber.vb" caret="469" fromTop="19" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.resx" caret="76591" fromTop="37" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:DiagForm.resx" caret="39844" fromTop="29" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:app.config" caret="1120" fromTop="19" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:DiagForm.vb" caret="752" fromTop="17" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/d:Classes/f:Broadcaster.vb" caret="8473" fromTop="39" />
+      <File id="0496F61E-89BB-4C7E-B01D-87D69ACB1E19/f:CIDRecord.vb" caret="7955" fromTop="36" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="29003" fromTop="19" />
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/d:Classes/f:CIDRecord.vb" caret="6386" fromTop="14" />
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/d:Classes/f:ELCBroadcaster.vb" caret="6168" fromTop="40" />
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/d:Forms/f:ELCForm1.vb" caret="6962" fromTop="27" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/d:Forms/f:ELCForm1.vb" caret="45657" fromTop="26" />
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/d:Forms/f:ELCForm1.vb" caret="46368" fromTop="44" />
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/d:Forms/f:ELCForm1.vb" caret="45894" fromTop="26" />
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/d:Forms/f:ELCForm1.vb" caret="46131" fromTop="32" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="5712" fromTop="20" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="7508" fromTop="43" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="5712" fromTop="23" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="5583" fromTop="17" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="5161" fromTop="7" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="61814" fromTop="24" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:showNumber.vb" caret="0" fromTop="0" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:showNumber.vb" caret="155" fromTop="7" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="55870" fromTop="25" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="55994" fromTop="29" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="62094" fromTop="31" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:showNumber.vb" caret="469" fromTop="19" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:showNumber.vb" caret="39844" fromTop="19" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/d:Classes/f:Broadcaster.vb" caret="7694" fromTop="32" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/d:Classes/f:Broadcaster.vb" caret="4601" fromTop="27" />
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/d:Classes/f:ELCBroadcaster.vb" caret="5484" fromTop="33" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="34731" fromTop="19" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="29151" fromTop="22" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="34731" fromTop="41" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="62161" fromTop="8" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="28391" fromTop="25" />
+      <File id="0496F61E-89BB-4C7E-B01D-87D69ACB1E19/f:CIDRecord.vb" caret="5327" fromTop="19" />
+      <File id="0496F61E-89BB-4C7E-B01D-87D69ACB1E19/f:CIDRecord.vb" caret="7955" fromTop="36" />
+      <File id="EC15790F-E3C6-4B05-A849-88169E838ADF/f:Form1.vb" caret="62161" fromTop="19" />
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/d:Classes/f:ELCBroadcaster.vb" caret="6168" fromTop="25" />
+      <File id="7401BCD0-D29B-48B8-97CB-5CBE93F0B2C6/d:Forms/f:ELCForm1.vb" caret="6962" fromTop="27" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>

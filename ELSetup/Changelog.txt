@@ -1,0 +1,15 @@
+10:19 AM 10/14/2008
+	Fixed: Reported wrong IP address when numbers were between 130 and 171
+
+11:30 AM 3/7/2008 Version 1.0.0.7
+	Added:
+		Visual feedback so you know when your list is really refreshing.
+	Fixed:
+		Changed the default port to 3520. It was at 3525. The Ethernet Link's port is set at 3520 from the factory.
+
+4:32 PM 2/4/2008 Version 1.0.0 R3
+	Added a label to further indicate the purpose for the 'send command' box
+	Removed Line Feeds and Carrage Returns from displaying in the output area.
+	Fixed program reporting to the wrong port field.
+11:01 AM 2/4/2008 Version 1.0
+	Initial Release

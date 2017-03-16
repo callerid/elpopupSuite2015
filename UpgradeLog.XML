@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="ELPopup">
+</Property><Property Name="Solution File" Value="C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup.sln">
+</Property><Property Name="Date" Value="Tuesday, August 13, 2013">
+</Property><Property Name="Time" Value="15:42 PM">
+</Property></Properties><Event ErrorLevel="1" Project="ELPopup" Source="ELPopup\ELPopup.vbproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="0" Project="ELPopup" Source="ELPopup\ELPopup.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ELPopup" Source="ELPopup\ELPopup.vbproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="ELSetup" Source="ELSetup\ELSetup.vbproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="0" Project="ELSetup" Source="ELSetup\ELSetup.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ELSetup" Source="ELSetup\ELSetup.vbproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="CIDClass" Source="CIDClass\CIDClass.vbproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="0" Project="CIDClass" Source="CIDClass\CIDClass.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CIDClass" Source="CIDClass\CIDClass.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AutoPlugIn" Source="AutoPlugIn\AutoPlugIn.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="AutoPlugIn" Source="AutoPlugIn\AutoPlugIn.vbproj" Description="Converted">
+</Event><Event ErrorLevel="1" Project="TextWritePlugIn" Source="FoxPlugIn\TextWritePlugIn.vbproj" Description="Your project is targeting .NET Framework 2.0 or 3.0. If your project uses assemblies requiring a newer .NET Framework, your project will fail to build. You can change the .NET Framework version by clicking Properties on the project menu and then selecting a new version in the '.NET Framework' dropdown box. (In Visual Basic, this is located on the Compile tab by clicking the 'Advanced Compiler Options...' button.)">
+</Event><Event ErrorLevel="0" Project="TextWritePlugIn" Source="FoxPlugIn\TextWritePlugIn.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="TextWritePlugIn" Source="FoxPlugIn\TextWritePlugIn.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="UnitBlockPlugIn" Source="UnitBlockPlugIn\UnitBlockPlugIn.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="UnitBlockPlugIn" Source="UnitBlockPlugIn\UnitBlockPlugIn.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="URLSendPlugIn" Source="URLSendPlugIn\URLSendPlugIn.vbproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="URLSendPlugIn" Source="URLSendPlugIn\URLSendPlugIn.vbproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="" Source="ELPopup.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="ELPopup.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ELPopup" Source="ELPopup\ELPopup.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="ELSetup" Source="ELSetup\ELSetup.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CIDClass" Source="CIDClass\CIDClass.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="AutoPlugIn" Source="AutoPlugIn\AutoPlugIn.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="TextWritePlugIn" Source="FoxPlugIn\TextWritePlugIn.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="UnitBlockPlugIn" Source="UnitBlockPlugIn\UnitBlockPlugIn.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

@@ -1,0 +1,80 @@
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\x86\Debug\ELConfig.ico
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\x86\Debug\ELConfig Manual.chm
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\x86\Debug\ELConfig.exe.config
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\x86\Debug\ELConfig.exe.manifest
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\x86\Debug\ELConfig.application
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\x86\Debug\ELConfig.exe
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\x86\Debug\ELConfig.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\x86\Debug\ELConfig.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\x86\Debug\IPControlsClass.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\x86\Debug\ElderwoodC.AboutBox1.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\x86\Debug\ElderwoodC.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\x86\Debug\ELSetup.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\x86\Debug\ELConfig.TrustInfo.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\x86\Debug\ELConfig.exe.manifest
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\x86\Debug\ELConfig.application
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\x86\Debug\ELConfig.exe
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\x86\Debug\ELConfig.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\x86\Debug\ELConfig.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\x86\Debug\ElderwoodC.ELCForm1.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\x86\Debug\ELSetup.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.exe.config
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.exe
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.xml
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.ico
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig Manual.chm
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.exe.manifest
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.application
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.exe
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.xml
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\bin\x86\Debug\IPControlsClass.dll
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELSetup.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.AboutBox1.resources
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.ELCForm1.resources
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELSetup.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.TrustInfo.xml
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.exe.manifest
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.application
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.exe.config
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.exe
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.xml
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.pdb
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.ico
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig Manual.chm
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.exe.manifest
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.application
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.exe
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.pdb
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.xml
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\IPControlsClass.dll
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELSetup.vbprojResolveAssemblyReference.cache
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.AboutBox1.resources
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.ELCForm1.resources
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.Resources.resources
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELSetup.vbproj.GenerateResource.Cache
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.TrustInfo.xml
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.exe.manifest
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.application
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.ico
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig Manual.chm
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.exe.config
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.exe.manifest
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.application
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.exe
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.pdb
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.xml
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\bin\x86\Debug\IPControlsClass.dll
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.AboutBox1.resources
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.ELCForm1.resources
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.Resources.resources
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ELSetup.vbproj.GenerateResource.Cache
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.TrustInfo.xml
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.exe.manifest
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.application
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.exe
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.xml
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.pdb
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ELSetup.vbprojResolveAssemblyReference.cache

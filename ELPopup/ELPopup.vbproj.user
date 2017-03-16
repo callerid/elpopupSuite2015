@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectView>ProjectFiles</ProjectView>
+    <PublishUrlHistory>C:\Published\ELPopup\|C:\Published\ELPopupTW\|C:\Published\ELPopupT\|\\192.168.0.123\Storage\Software\ELPopup\|\\192.168.0.123\Storage\Software\VisualStudio\ELPopup\</PublishUrlHistory>
+    <InstallUrlHistory>http://www.callerid.com/tools/ELPopup/|http://www.callerid.com/test/|http://www.callerid.com/</InstallUrlHistory>
+    <SupportUrlHistory>
+    </SupportUrlHistory>
+    <UpdateUrlHistory>http://www.callerid.com/tools/ELPopup/</UpdateUrlHistory>
+    <BootstrapperUrlHistory>
+    </BootstrapperUrlHistory>
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+    <ErrorReportUrlHistory />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <StartArguments>
+    </StartArguments>
+  </PropertyGroup>
+</Project>

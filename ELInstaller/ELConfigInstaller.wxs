@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi" xmlns:firewall="http://schemas.microsoft.com/wix/FirewallExtension">
+  <!-- On upgrade, change "ProductVersion", Product Name, Package info. -->
+  <?define SkuName = "" ?>
+  <?define ProductVersion="1.5.0" ?>
+  <?define UpgradeCode="{66409CE5-9054-44b1-B240-C08A2BE4BFE0}" ?>
+  <?define Manufacturer="CallerID.com" ?>
+  <!--<?define ProductCode="{38DD8BBF-49A0-4e4b-9B98-6A6B138504B8}" ?>-->
+  <?define ProductCode="{????????-????-????-????-????????????}" ?>
+  <?define PackageCode="{????????-????-????-????-????????????}" ?>
+  
+  <Product Name='ELConfig 1.5.0' 
+           Id='$(var.ProductCode)' 
+           UpgradeCode='$(var.UpgradeCode)'
+           Language='1033' 
+           Codepage='1252' 
+           Version='$(var.ProductVersion)' 
+           Manufacturer='$(var.Manufacturer)'>
+
+    <Package Id='$(var.PackageCode)' 
+             Keywords='Installer'
+             Description="ELConfig Installer"
+             Comments='ELConfig is a trademark of CallerID.com' 
+             Manufacturer='CallerID.com'
+             InstallerVersion='100' 
+             Languages='1033' 
+             Compressed='yes' 
+             SummaryCodepage='1252' />
+    <Property Id='DiskPrompt' Value="CallerID.com ELConfig Installer" />
+    <Property Id='PREVIOUSVERSIONSINSTALLED' Secure='yes' />
+    <Upgrade Id='$(var.UpgradeCode)'>
+      <UpgradeVersion IgnoreRemoveFailure='no'
+                      Property='PREVIOUSVERSIONSINSTALLED'
+                      IncludeMinimum='yes' 
+                      IncludeMaximum='no'
+                      Minimum='1.0.0' 
+                      Maximum='99.0.0.0'/>
+    </Upgrade>
+    <Media Id='1' Cabinet='Sample.cab' EmbedCab='yes' DiskPrompt="CD-ROM #1" />
+    
+
+    <Condition Message='This setup requires the .NET Framework 2.0 or higher.'>
+      <![CDATA[MsiNetAssemblySupport >= "2.0.50727"]]>
+    </Condition>
+    
+    <Directory Id='TARGETDIR' Name='SourceDir'>
+      <Directory Id='ProgramFilesFolder' Name='PFiles'>
+        <Directory Id='CallerDIR' Name='CallerID.com'>
+
+          <Component Id='Changelog' Guid='179AB2A9-297E-4eb6-B895-E30162EBAA40'>
+            <File Id='ChangelogFile' Name='Change.txt' LongName='CHANGELOG.txt' DiskId='1'
+                  Source='../CHANGELOG.txt' Vital='yes'/>
+          </Component>
+
+<!-- ELCONFIG -->
+          <Directory Id='INSTALLDIR' Name='ELConfig'>
+            
+            <Component Id='MainExecutable' Guid='B9EE46B9-1016-4882-8C2E-495C6D7487D8'>
+              <File Id='ELConfigEXE' Name='ELConfig.exe' DiskId='1'
+                    Source='..\ELSetup\bin\Release\ELConfig.exe' Vital='yes'>
+                <Shortcut Id='startmenuELSetup' Directory='ProgramMenuDir' Name='ELConfig'
+                          WorkingDirectory='ELCONFIGINSTALLDIR' />
+              </File>
+			  <firewall:FirewallException Id="ELC" Name="ELConfig Exception" File="MainExecutable" Scope="any" />
+            </Component>
+
+            <Component Id="MainDesktopShortcut" Guid="4DF1439D-15C0-4929-BE2D-44843563F619">
+              <Condition>INSTALLDESKTOPSHORTCUT</Condition>
+              <Registry Root="HKCU" Key="Software\CallerID.com\ELConfig\Install"
+	               Action="write" Type="integer" Name="DTSC" Value="1" />
+              <Shortcut Id="desktopELConfig" Directory="DesktopFolder" Name="ELConfig"
+                        Target="[#ELConfigEXE]" WorkingDirectory="INSTALLDIR" />
+            </Component>
+
+            <Component Id='ELConfigIcon' Guid='DDCA69BD-0334-4820-B614-DED129EF3360'>
+              <File Id='ELConfigICO' Name='ELConfig.ico' DiskId='1'
+                    Source='..\ELSetup\bin\Release\ELConfig.ico' Vital='yes' />
+            </Component>
+			
+			<Component Id='ELConfigManual' Guid='30320FEB-26CE-4ea9-9703-321B8EA9D3DA'>
+              <File Id='ELConfigMAN' Name='ELConfig.chm' DiskId='1' LongName='ELConfig Manual.chm'
+                    Source='..\ELSetup\bin\Release\ELConfig Manual.chm' Vital='yes' />
+            </Component>
+            
+			<Component Id='InputClasses' Guid='E478ED09-D841-47ea-88AA-673BF33CAD10'>
+              <File Id='IPControlClass' Name='IPContrl.dll' LongName='IPControlsClass.dll' DiskId='1'
+                    Source='..\ELSetup\bin\Release\IPControlsClass.dll' Vital='yes'/>
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+
+      <Directory Id="ProgramMenuFolder" Name="PMenu" LongName="Programs">
+        <Directory Id="ProgramMenuDir" Name='CallerID.com' />
+      </Directory>
+
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+
+
+    <Feature Id='MainProgramFeature' Title='ELConfig' Description='Main application that displays and stores Caller ID from a Whozz Calling? RS232 or Ethernet device.'
+             ConfigurableDirectory='INSTALLDIR' Level='1'
+             AllowAdvertise='no'>
+      <ComponentRef Id='MainExecutable' />
+      <ComponentRef Id='MainDesktopShortcut' />
+      <ComponentRef Id='InputClasses'/>
+      <ComponentRef Id='ELConfigManual' />
+      <ComponentRef Id='ELConfigIcon' />
+    </Feature>
+   
+    <Feature Id='RequiredComponents' Title='Required' Level='1' Display='hidden' AllowAdvertise='no' >
+      <ComponentRef Id='Changelog' />
+    </Feature>
+
+    <UI Id="WixUI_Minimal">
+      <TextStyle Id="WixUI_Font_Normal" FaceName="Tahoma" Size="8" />
+      <TextStyle Id="WixUI_Font_Bigger" FaceName="Tahoma" Size="12" />
+      <TextStyle Id="WixUI_Font_Title" FaceName="Tahoma" Size="9" Bold="yes" />
+
+      <Property Id="DefaultUIFont" Value="WixUI_Font_Normal" />
+      <!--<Property Id="WixUI_Mode" Value="Minimal" />-->
+
+      <DialogRef Id="ErrorDlg" />
+      <!--<DialogRef Id="ExitDialog" />-->
+      <DialogRef Id="FatalError" />
+      <DialogRef Id="FilesInUse" />
+      <DialogRef Id="MaintenanceTypeDlg" />
+      <DialogRef Id="MaintenanceWelcomeDlg" />
+      <DialogRef Id="MsiRMFilesInUse" />
+      <DialogRef Id="PrepareDlg" />
+      <DialogRef Id="ProgressDlg" />
+      <DialogRef Id="ResumeDlg" />
+      <DialogRef Id="UserExit" />
+      <DialogRef Id="VerifyReadyDlg" />
+      <!--<DialogRef Id="WelcomeEulaDlg" />-->
+
+      <Property Id="ARPNOMODIFY" Value="1" />
+
+      <Property Id="WixUI_VerifyReadyDlg_BackCustom" Value="CustomizeDlg" />
+      <Property Id="WixUI_VerifyReadyDlg_BackChange" Value="CustomizeDlg" />
+      <Property Id="WixUI_VerifyReadyDlg_BackRepair" Value="MaintenanceTypeDlg" />
+      <Property Id="WixUI_VerifyReadyDlg_BackRemove" Value="MaintenanceTypeDlg" />
+      <Property Id="WixUI_VerifyReadyDlg_BackTypical" Value="SetupTypeDlg" />
+      <Property Id="WixUI_VerifyReadyDlg_BackFeatureTree" Value="CustomizeDlg" />
+      <Property Id="WixUI_VerifyReadyDlg_BackComplete" Value="CustomizeDlg" />
+
+      <Property Id="WixUI_MaintenanceWelcomeDlg_Next" Value="MaintenanceTypeDlg" />
+
+      <Property Id="WixUI_MaintenanceTypeDlg_Back" Value="MaintenanceWelcomeDlg" />
+      <Property Id="WixUI_MaintenanceTypeDlg_Change" Value="CustomizeDlg" />
+      <Property Id="WixUI_MaintenanceTypeDlg_Repair" Value="VerifyReadyDlg" />
+      <Property Id="WixUI_MaintenanceTypeDlg_Remove" Value="VerifyReadyDlg" />
+      
+      <Dialog Id="CID_ExitDialog" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
+        <Control Id="Finish" Type="PushButton" X="236" Y="243" Width="56" Height="17"
+                 Default="yes" Cancel="yes" Text="Finish">
+          <Publish Event="EndDialog" Value="Return">1</Publish>
+          <Publish Event="DoAction" Value="LaunchFile">(NOT Installed) AND (LAUNCHPRODUCT = 1) AND (&amp;MainProgramFeature = 3)</Publish>
+        </Control>
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Disabled="yes" Text="Cancel" />
+        <Control Id="Bitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="234" TabSkip="no" Text="[DialogBitmap]" />
+        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Disabled="yes" Text="Back" />
+        <Control Id="Description" Type="Text" X="135" Y="70" Width="220" Height="20" Transparent="yes" NoPrefix="yes">
+          <Text>Click the Finish button to exit the [Wizard].</Text>
+        </Control>
+        <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
+        <Control Id="Title" Type="Text" X="135" Y="20" Width="220" Height="60" Transparent="yes" NoPrefix="yes">
+          <Text>{\VerdanaBold13}Completing the [ProductName] [Wizard].</Text>
+        </Control>
+        <Control Id="Launch" Type="CheckBox" X="135" Y="120" Width="150" Height="17"
+                 Property="LAUNCHPRODUCT" CheckBoxValue="1">
+          <Text>Launch [ProductName]</Text>
+          <Condition Action="hide">
+            NOT (&amp;MainProgramFeature = 3)
+          </Condition>
+        </Control>
+      </Dialog>
+
+      <Dialog Id="CID_WelcomeEulaDlg" Width="370" Height="270" Title="$(loc.WelcomeEulaDlg_Title)">
+        <Control Id="Bitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="234" TabSkip="no" Text="$(loc.WelcomeEulaDlgBitmap)" />
+        <Control Id="LicenseAcceptedCheckBox" Type="CheckBox" X="130" Y="207" Width="226" Height="18" CheckBoxValue="1" Property="LicenseAccepted" Text="$(loc.WelcomeEulaDlgLicenseAcceptedCheckBox)" />
+        <Control Id="InstallDesktopCheckBox" Type="CheckBox" X="130" Y="190" Width="226" Height="18" CheckBoxValue="1" Property="INSTALLDESKTOPSHORTCUT"
+                 Text="Create a shortcut to ELConfig on the Desktop" />
+        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Disabled="yes" Text="$(loc.WixUIBack)" />
+        <Control Id="Install" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="$(loc.WelcomeEulaDlgInstall)">
+          <Publish Event="SpawnWaitDialog" Value="WaitForCostingDlg">CostingComplete = 1</Publish>
+          <Publish Event="EndDialog" Value="Return"><![CDATA[OutOfDiskSpace <> 1]]></Publish>
+          <Publish Event="SpawnDialog" Value="OutOfRbDiskDlg">OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND (PROMPTROLLBACKCOST="P" OR NOT PROMPTROLLBACKCOST)</Publish>
+          <Publish Event="EndDialog" Value="Return">OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST="D"</Publish>
+          <Publish Event="EnableRollback" Value="False">OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 0 AND PROMPTROLLBACKCOST="D"</Publish>
+          <Publish Event="SpawnDialog" Value="OutOfDiskDlg">(OutOfDiskSpace = 1 AND OutOfNoRbDiskSpace = 1) OR (OutOfDiskSpace = 1 AND PROMPTROLLBACKCOST="F")</Publish>
+          <Condition Action="disable"><![CDATA[LicenseAccepted <> "1"]]></Condition>
+          <Condition Action="enable">LicenseAccepted = "1"</Condition>
+        </Control>
+        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="$(loc.WixUICancel)">
+          <Publish Event="SpawnDialog" Value="CancelDlg">1</Publish>
+        </Control>
+        <Control Id="Title" Type="Text" X="130" Y="6" Width="225" Height="30" Transparent="yes" NoPrefix="yes" Text="$(loc.WelcomeEulaDlgTitle)" />
+        <Control Id="LicenseText" Type="ScrollableText" X="130" Y="36" Width="226" Height="152" Sunken="yes" TabSkip="no">
+          <Text SourceFile="License.rtf" />
+        </Control>
+        <Control Id="Print" Type="PushButton" X="112" Y="243" Width="56" Height="17" Text="$(loc.WixUIPrint)">
+          <Publish Event="DoAction" Value="WixUIPrintEula">1</Publish>
+        </Control>
+        <Control Id="BottomLine" Type="Line" X="0" Y="234" Width="370" Height="0" />
+      </Dialog>
+  </UI>
+    
+    <InstallUISequence>
+      <Show Dialog="CID_ExitDialog" OnExit="success" />
+      <Show Dialog="CID_WelcomeEulaDlg" Before="ProgressDlg">NOT Installed</Show>
+    </InstallUISequence>
+    
+    <AdminUISequence>
+      <Show Dialog="CID_ExitDialog" OnExit="success" />
+    </AdminUISequence>
+    
+    <Property Id="ALLUSERS">2</Property>
+    <Property Id="ButtonText_No">&amp;No</Property>
+    <Property Id="ButtonText_Install">&amp;Install</Property>
+    <Property Id="Setup">Installer</Property>
+    <Property Id="ButtonText_Browse">Br&amp;owse</Property>
+    <Property Id="CustomSetupIcon">custicon</Property>
+    <Property Id="ButtonText_Next">&amp;Next &gt;</Property>
+    <Property Id="ButtonText_Back">&lt; &amp;Back</Property>
+    <Property Id="InstallMode">Typical</Property>
+    <Property Id="Progress2">installs</Property>
+    <Property Id="IAgree">No</Property>
+    <Property Id="Wizard">Installer</Property>
+    <Property Id="RemoveIcon">removico</Property>
+    <Property Id="ExclamationIcon">exclamic</Property>
+    <Property Id="ShowUserRegistrationDlg">1</Property>
+    <Property Id="ProductID">none</Property>
+    <Property Id="ButtonText_Reset">&amp;Reset</Property>
+    <Property Id="ButtonText_Remove">&amp;Remove</Property>
+    <Property Id="CompleteSetupIcon">completi</Property>
+    <Property Id="ButtonText_Yes">&amp;Yes</Property>
+    <Property Id="ButtonText_Exit">&amp;Exit</Property>
+    <Property Id="ButtonText_Return">&amp;Return</Property>
+    <Property Id="DialogBitmap">dlgbmp</Property>
+    <Property Id="DlgTitleFont">{&amp;DlgFontBold8}</Property>
+    <Property Id="ButtonText_Ignore">&amp;Ignore</Property>
+    <Property Id="RepairIcon">repairic</Property>
+    <Property Id="ButtonText_Resume">&amp;Resume</Property>
+    <Property Id="InstallerIcon">insticon</Property>
+    <Property Id="ButtonText_Finish">&amp;Finish</Property>
+    <Property Id="PROMPTROLLBACKCOST">P</Property>
+    <Property Id="PIDTemplate"><![CDATA[12345<#######>@@@@@]]></Property>
+    <Property Id="Progress1">Installing</Property>
+    <Property Id="ButtonText_Cancel">Cancel</Property>
+    <Property Id="INSTALLLEVEL">3</Property>
+    <Property Id="InfoIcon">info</Property>
+    <Property Id="ButtonText_Repair">&amp;Repair</Property>
+    <Property Id="ButtonText_Retry">&amp;Retry</Property>
+    <Property Id="BannerBitmap">bannrbmp</Property>
+    <Property Id="ButtonText_OK">OK</Property>
+ 
+    <Property Id="LAUNCHPRODUCT">1</Property>
+    <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
+    
+    <CustomAction Id="LaunchFile" FileKey="ELConfigEXE" ExeCommand="" Return="asyncNoWait" />
+    <CustomAction Id="AlreadyUpdated" Error="[ProductName] has already been updated to 1.0.1 or newer." />
+    <AdminExecuteSequence />
+
+    <InstallExecuteSequence>
+      <Custom Action="AlreadyUpdated" After="FindRelatedProducts">PATCHFOUND</Custom>
+      <RemoveExistingProducts Before="InstallInitialize" />
+    </InstallExecuteSequence>
+
+    <!--<UIRef Id="WixUI_Minimal" />
+    <UIRef Id="WixUI_ErrorProgressText" />-->
+    
+    <Binary Id="Up" SourceFile="Binary\Up.ico" />
+    <Binary Id="New" SourceFile="Binary\New.ico" />
+    <Binary Id="custicon" SourceFile="Binary\Custom.ico" />
+    <Binary Id="repairic" SourceFile="Binary\Repair.ico" />
+    <Binary Id="exclamic" SourceFile="Binary\Exclam.ico" />
+    <Binary Id="removico" SourceFile="Binary\Remove.ico" />
+    <Binary Id="completi" SourceFile="Binary\Complete.ico" />
+    <Binary Id="insticon" SourceFile="Binary\Typical.ico" />
+    <Binary Id="info" SourceFile="Binary\Info.ico" />
+    <Binary Id="bannrbmp" SourceFile="Binary\Banner.bmp" />
+    <Binary Id="WixUI_Bmp_Banner" SourceFile="Binary\Banner.bmp" />
+    <Binary Id="WixUI_Bmp_Dialog" SourceFile="Binary\Dialog.bmp" />
+    <Binary Id="dlgbmp" SourceFile="Binary\Dialog.bmp" />
+    <Icon Id="Phone.ico" SourceFile="../ELPopup/bin/Release/Phone.ico" />
+    
+
+  </Product>
+</Wix>

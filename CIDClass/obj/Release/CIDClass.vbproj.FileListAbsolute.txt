@@ -1,0 +1,9 @@
+C:\Users\Grant\Documents\Projects\ELPopup2010\CIDClass\bin\Release\CIDClass.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\CIDClass\bin\Release\CIDClass.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\CIDClass\bin\Release\CIDClass.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\CIDClass\obj\Release\CIDClass.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\CIDClass\obj\Release\CIDClass.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup2010\CIDClass\obj\Release\CIDClass.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\CIDClass\obj\Release\CIDClass.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\CIDClass\obj\Release\CIDClass.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\CIDClass\bin\Release\CIDClass.tlb

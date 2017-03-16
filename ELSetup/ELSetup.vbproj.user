@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectView>ProjectFiles</ProjectView>
+    <PublishUrlHistory>C:\Published\ELSetup\|C:\Documents and Settings\Grant\My Documents\Published Projects\|ftp://callerid.com/www/www/tools/ELSetup/|http://www.callerid.com/tools/ELSetup/|\\192.168.0.123\Storage\Software\VisualStudio\ElderwoodC\</PublishUrlHistory>
+    <InstallUrlHistory>http://www.callerid.com/tools/ELSetup/|\\192.168.0.123\Storage\Software\VisualStudio\ElderwoodC\|\\192.168.0.123\Storage\Software\VisualStudio\Elderwood\|\\Fileserver2\Storage\Software\VisualStudio\Elderwood\|\\Fileserver2\Server\Software\VisualStudio\Elderwood\</InstallUrlHistory>
+    <SupportUrlHistory>
+    </SupportUrlHistory>
+    <UpdateUrlHistory>http://www.callerid.com/tools/ELSetup/</UpdateUrlHistory>
+    <BootstrapperUrlHistory>
+    </BootstrapperUrlHistory>
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+    <ErrorReportUrlHistory />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <StartArguments>-devmode</StartArguments>
+  </PropertyGroup>
+</Project>

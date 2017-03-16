@@ -1,0 +1,78 @@
+************************************************************************************
+*********           Changelog for CallerID Software Suite                ***********
+********* (EL Popup, EL Config, WC Troubleshooter, Remote Desktop tool)  ***********
+*********                                                                ***********
+************************************************************************************
+
+3:46 PM 8/13/2013 (v1.40)
+	Converted to VS2010, fixed JumpList errors by compiling in .net Framework 3.5
+
+5:13 PM 12/16/2011 (v1.40)
+	Expanded Plugin settings
+	Included two plugins: 
+		URL Send sends Caller ID data to a URL.
+		Text Writer writes Caller ID data to a text file. One file per line, and new data overwrites the old file.
+
+9:26 AM 4/19/2010  (v1.31)
+	Fixed: Typos in the ELPopup and ELConfig manuals.
+
+10:38 AM 3/23/2010 (v1.3)
+	Changed:
+		 Renamed "EL Setup" to "EL Config" (UAC automatically assumes 'setup' is an installation file and asks for account elevation).
+		 EL Config disables EL Popup when both are running. This allows Config to run more reliably.
+		 Source code is now versioned with Mercurial.
+		 Installer no longer requires you to uninstall the previous version (it's automatic).
+		 Updated System.Data.SQLite.DLL to 1.0.65.0
+
+	Added:
+		 EL Config manual
+		 EL Config Icon
+		 Reset commands in EL Config, in case your unit is Fubar'd. Probably best not to hit this option unless you've tried everything else.
+		 Two Windows 7 Jumplist commands:
+			Manual: For light reading.
+			Export Data: A quick way to get your entire call history file without mucking about in the options window.
+		 Support for Growl for Windows
+
+	Fixed:
+		 EL Popup's Options UI is improved. 
+		 Fixed bug where EL Popup's window would get stuck off-screen if you try to hide it twice.
+
+
+11:21 AM 4/21/2009
+	Added:
+		Downloading from Whozz Calling? 2 memory.
+		User Manual.
+		Detail Logging mode. This will log data just after the computer receives it, but before it's processed.
+	Fixed:
+		Popups now stay for the duration of the popup time set in the options menu. Before it was just a rough estimate.
+
+4:22 PM 3/25/2009
+	Fixed:  
+		Removed refrences to Keyfiles that do not come with the source code.
+
+1:05 PM 5/6/2008
+	Added:
+		Right Click context menu with Delete Record and Lookup Phone Number options.
+
+12:57 PM 3/31/2008
+	Fixed:
+		Issue where a router would generate echo packets. Echo packets are now ignored.
+
+3:43 PM 3/11/2008
+	Added:
+		Support for up to 8 lines. New lines will show up when you get a call from any line over 4.
+
+2:32 PM 3/3/2008
+	Fixed:
+		Fixed the "Database locked" error (for real, hopefully). Database would lock after some outgoing calls.
+
+9:07 AM 2/29/2008
+	Fixed:
+		Trying to hide the window would jump the window to left moniter in dual moniter setups.
+		Sometimes the program would crash with a "Database Locked" error.
+		Missing names would not allow you to review the last caller by left-clicking the trayicon, even if there was a number.
+	Changed:
+		If the name and phone number are the same (Private, Out of Area, ...) It only displays the number on popups.
+
+10:51 AM 2/28/2008
+	Inital Release (v 0.9.0.4)

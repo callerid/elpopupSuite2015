@@ -1,0 +1,19 @@
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\Release\ELConfig.exe.config
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\Release\ELConfig.ico
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\Release\ELConfig Manual.chm
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\Release\ELConfig.exe.manifest
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\Release\ELConfig.application
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\Release\ELConfig.exe
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\Release\ELConfig.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\Release\ELConfig.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\bin\Release\IPControlsClass.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\Release\ElderwoodC.AboutBox1.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\Release\ElderwoodC.ELCForm1.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\Release\ElderwoodC.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\Release\ELSetup.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\Release\ELConfig.TrustInfo.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\Release\ELConfig.exe.manifest
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\Release\ELConfig.application
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\Release\ELConfig.exe
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\Release\ELConfig.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELSetup\obj\Release\ELConfig.pdb

@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Basic Express 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ELPopup", "ELPopup\ELPopup.vbproj", "{EC15790F-E3C6-4B05-A849-88169E838ADF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD|Any CPU = CD|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC15790F-E3C6-4B05-A849-88169E838ADF}.CD|Any CPU.ActiveCfg = CD|Any CPU
+		{EC15790F-E3C6-4B05-A849-88169E838ADF}.CD|Any CPU.Build.0 = CD|Any CPU
+		{EC15790F-E3C6-4B05-A849-88169E838ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC15790F-E3C6-4B05-A849-88169E838ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC15790F-E3C6-4B05-A849-88169E838ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC15790F-E3C6-4B05-A849-88169E838ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

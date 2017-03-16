@@ -1,0 +1,140 @@
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\ELPopup.exe.config
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.vbproj.ResolveComReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\System.Data.SQLite.DLL
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\Resources\Phone48.png
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\ELPopup Manual.chm
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\Phone.ico
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\ELPopup.exe.manifest
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\ELPopup.application
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\ELPopup.exe
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\ELPopup.pdb
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\ELPopup.xml
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\CIDClass.dll
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\Growl.Connector.dll
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\Growl.CoreLibrary.dll
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\System.Printing.dll
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\PresentationCore.dll
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\CIDClass.pdb
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\CIDClass.xml
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.DiagForm.resources
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.Form1.resources
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.Options.resources
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.PopBanner.resources
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.TrustInfo.xml
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.exe.manifest
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.application
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.exe
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.xml
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\obj\Debug\ELPopup.pdb
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\ELPopup.exe.config
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.vbproj.ResolveComReference.cache
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.exe
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.xml
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.pdb
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.DiagForm.resources
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.Form1.resources
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.Resources.resources
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.Options.resources
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.PopBanner.resources
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.vbproj.GenerateResource.Cache
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\System.Data.SQLite.DLL
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\Resources\Phone48.png
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\ELPopup Manual.chm
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\Phone.ico
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\ELPopup.exe.manifest
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\ELPopup.application
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\ELPopup.exe
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\ELPopup.pdb
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\ELPopup.xml
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\CIDClass.dll
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\Growl.Connector.dll
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\Growl.CoreLibrary.dll
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\CIDClass.pdb
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\CIDClass.xml
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\bin\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.TrustInfo.xml
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.exe.manifest
+C:\Users\Grant\Desktop\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.application
+F:\Projects\ELPopup VS2010\ELPopup\bin\Debug\ELPopup.exe.config
+F:\Projects\ELPopup VS2010\ELPopup\obj\Debug\Interop.IWshRuntimeLibrary.dll
+F:\Projects\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.vbproj.ResolveComReference.cache
+F:\Projects\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.exe
+F:\Projects\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.xml
+F:\Projects\ELPopup VS2010\ELPopup\obj\Debug\ELPopup.pdb
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\ELPopup.exe.config
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.vbproj.ResolveComReference.cache
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.exe
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.xml
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.pdb
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\System.Data.SQLite.DLL
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\ELPopup Manual.chm
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\Resources\Phone48.png
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\Phone.ico
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\ELPopup.exe.manifest
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\ELPopup.application
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\ELPopup.exe
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\ELPopup.pdb
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\ELPopup.xml
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\CIDClass.dll
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\Growl.Connector.dll
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\Growl.CoreLibrary.dll
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\CIDClass.pdb
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\CIDClass.xml
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.DiagForm.resources
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.Form1.resources
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.Resources.resources
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.Options.resources
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.PopBanner.resources
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.vbproj.GenerateResource.Cache
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.TrustInfo.xml
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.exe.manifest
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\obj\Debug\ELPopup.application
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\ELPopup.exe.config
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.vbproj.ResolveComReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.exe
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\System.Data.SQLite.DLL
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\Resources\Phone48.png
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\ELPopup Manual.chm
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\Phone.ico
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\ELPopup.exe.manifest
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\ELPopup.application
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\ELPopup.exe
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\ELPopup.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\ELPopup.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\CIDClass.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\Growl.Connector.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\Growl.CoreLibrary.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\CIDClass.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\CIDClass.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.DiagForm.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.Form1.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.Options.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.PopBanner.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.TrustInfo.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.exe.manifest
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\obj\Debug\ELPopup.application

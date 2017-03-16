@@ -1,0 +1,66 @@
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\plugins\URLSendPlugIn.dll.config
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\plugins\URLSendPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\plugins\URLSendPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup\ELPopup\bin\Debug\plugins\URLSendPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup\URLSendPlugIn\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup\URLSendPlugIn\obj\Debug\URLSendPlugIn.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup\URLSendPlugIn\obj\Debug\URLSendPlugIn.DialogSettings.resources
+C:\Users\Grant\Documents\Projects\ELPopup\URLSendPlugIn\obj\Debug\URLSendPlugIn.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup\URLSendPlugIn\obj\Debug\URLSendPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup\URLSendPlugIn\obj\Debug\URLSendPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup\URLSendPlugIn\obj\Debug\URLSendPlugIn.pdb
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\plugins\URLSendPlugIn.dll.config
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\plugins\URLSendPlugIn.dll
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\plugins\URLSendPlugIn.pdb
+C:\Users\Grant\Desktop\ELPopup2010\ELPopup\bin\Debug\plugins\URLSendPlugIn.xml
+C:\Users\Grant\Desktop\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Desktop\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.Resources.resources
+C:\Users\Grant\Desktop\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.DialogSettings.resources
+C:\Users\Grant\Desktop\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.vbproj.GenerateResource.Cache
+C:\Users\Grant\Desktop\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.dll
+C:\Users\Grant\Desktop\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.xml
+C:\Users\Grant\Desktop\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\plugins\URLSendPlugIn.dll.config
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\plugins\URLSendPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\plugins\URLSendPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\ELPopup\bin\Debug\plugins\URLSendPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.DialogSettings.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\URLSendPlugIn\obj\Debug\URLSendPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELPopup\bin\Debug\plugins\URLSendPlugIn.dll.config
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELPopup\bin\Debug\plugins\URLSendPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELPopup\bin\Debug\plugins\URLSendPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2015\ELPopup\bin\Debug\plugins\URLSendPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.DialogSettings.resources
+C:\Users\Grant\Documents\Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.pdb
+F:\Projects\Visual Studio Projects\ELPopup2015\ELPopup\bin\Debug\plugins\URLSendPlugIn.dll.config
+F:\Projects\Visual Studio Projects\ELPopup2015\ELPopup\bin\Debug\plugins\URLSendPlugIn.dll
+F:\Projects\Visual Studio Projects\ELPopup2015\ELPopup\bin\Debug\plugins\URLSendPlugIn.pdb
+F:\Projects\Visual Studio Projects\ELPopup2015\ELPopup\bin\Debug\plugins\URLSendPlugIn.xml
+F:\Projects\Visual Studio Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.vbprojResolveAssemblyReference.cache
+F:\Projects\Visual Studio Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.Resources.resources
+F:\Projects\Visual Studio Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.DialogSettings.resources
+F:\Projects\Visual Studio Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.vbproj.GenerateResource.Cache
+F:\Projects\Visual Studio Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.dll
+F:\Projects\Visual Studio Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.xml
+F:\Projects\Visual Studio Projects\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.pdb
+C:\Users\spenl\Desktop\ELPopup2015\ELPopup\bin\Debug\plugins\URLSendPlugIn.dll.config
+C:\Users\spenl\Desktop\ELPopup2015\ELPopup\bin\Debug\plugins\URLSendPlugIn.dll
+C:\Users\spenl\Desktop\ELPopup2015\ELPopup\bin\Debug\plugins\URLSendPlugIn.pdb
+C:\Users\spenl\Desktop\ELPopup2015\ELPopup\bin\Debug\plugins\URLSendPlugIn.xml
+C:\Users\spenl\Desktop\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.vbprojResolveAssemblyReference.cache
+C:\Users\spenl\Desktop\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.Resources.resources
+C:\Users\spenl\Desktop\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.DialogSettings.resources
+C:\Users\spenl\Desktop\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.vbproj.GenerateResource.Cache
+C:\Users\spenl\Desktop\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.dll
+C:\Users\spenl\Desktop\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.xml
+C:\Users\spenl\Desktop\ELPopup2015\URLSendPlugIn\obj\Debug\URLSendPlugIn.pdb

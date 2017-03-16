@@ -1,0 +1,56 @@
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\bin\x86\Debug\TextWritePlugIn.vb
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\bin\x86\Debug\FoxPlugIn.dll.config
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\bin\x86\Debug\FoxPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\bin\x86\Debug\FoxPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\bin\x86\Debug\FoxPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\bin\x86\Debug\CIDClass.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\bin\x86\Debug\CIDClass.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\bin\x86\Debug\CIDClass.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\obj\x86\Debug\FoxPlugIn.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\obj\x86\Debug\TextWritePlugIn.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\obj\x86\Debug\FoxPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\obj\x86\Debug\FoxPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\obj\x86\Debug\FoxPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2010\FoxPlugIn\obj\x86\Debug\TextWritePlugIn.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\TextWritePlugIn.vb
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\FoxPlugIn.dll.config
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\FoxPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\FoxPlugIn.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\FoxPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\CIDClass.dll
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\CIDClass.pdb
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\CIDClass.xml
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\obj\x86\Debug\TextWritePlugIn.vbprojResolveAssemblyReference.cache
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\obj\x86\Debug\FoxPlugIn.Resources.resources
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\obj\x86\Debug\TextWritePlugIn.vbproj.GenerateResource.Cache
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\obj\x86\Debug\FoxPlugIn.dll
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\obj\x86\Debug\FoxPlugIn.xml
+C:\Users\Grant\Documents\Projects\ELPopup2015\FoxPlugIn\obj\x86\Debug\FoxPlugIn.pdb
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\TextWritePlugIn.vb
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\FoxPlugIn.dll.config
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\FoxPlugIn.dll
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\FoxPlugIn.pdb
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\FoxPlugIn.xml
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\CIDClass.dll
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\CIDClass.pdb
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\bin\x86\Debug\CIDClass.xml
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\obj\x86\Debug\TextWritePlugIn.vbprojResolveAssemblyReference.cache
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\obj\x86\Debug\FoxPlugIn.Resources.resources
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\obj\x86\Debug\TextWritePlugIn.vbproj.GenerateResource.Cache
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\obj\x86\Debug\FoxPlugIn.dll
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\obj\x86\Debug\FoxPlugIn.xml
+F:\Projects\Visual Studio Projects\ELPopup2015\FoxPlugIn\obj\x86\Debug\FoxPlugIn.pdb
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\bin\x86\Debug\TextWritePlugIn.vb
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\bin\x86\Debug\FoxPlugIn.dll.config
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\bin\x86\Debug\FoxPlugIn.dll
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\bin\x86\Debug\FoxPlugIn.pdb
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\bin\x86\Debug\FoxPlugIn.xml
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\bin\x86\Debug\CIDClass.dll
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\bin\x86\Debug\CIDClass.pdb
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\bin\x86\Debug\CIDClass.xml
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\obj\x86\Debug\TextWritePlugIn.vbprojResolveAssemblyReference.cache
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\obj\x86\Debug\FoxPlugIn.Resources.resources
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\obj\x86\Debug\TextWritePlugIn.vbproj.GenerateResource.Cache
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\obj\x86\Debug\FoxPlugIn.dll
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\obj\x86\Debug\FoxPlugIn.xml
+C:\Users\spenl\Desktop\ELPopup2015\FoxPlugIn\obj\x86\Debug\FoxPlugIn.pdb
