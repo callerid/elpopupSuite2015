@@ -93,140 +93,191 @@ End Class
 
 
 Public Class UdpReceiverClass
+
     Public sReceivedMessage As String
+    Public sReceivedMessageUTF7 As String
     Public bPause As Boolean = False
     Public bTestMode As Boolean = False
     Private pLastPacket As String
-    Public Event DataReceived(obj As Object)
+    Public Event DataReceived(ByVal obj As Object)
     Public Event Log(ByVal LogMessage As String, ByVal iLogLevel As Integer)
+    Public Event EndReceiving()
+    Public nListenPorts() As Integer = {3520, 3521, 3522, 3523, 3524, 3525, 3526, 3527, 3528, 3529, 3530}
+    Public boundPort As Integer
+    Public keepListeninging As Boolean = True
 
     Sub UdpIdleReceive()
 
+
         Dim done As Boolean = False
         Dim udpClient As New Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp)
+
+        udpClient.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, True)
+        udpClient.EnableBroadcast = True
+
+        Dim bound As Boolean = False
+        Dim socketThrown As Boolean = False
         Dim intEndPoint As New IPEndPoint(IPAddress.Any, 3520)
 
-        '       Try
-        udpClient.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, True)
-        'udpClient.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ExclusiveAddressUse, True)
-        'Catch ex As Exception
-        'MsgBox("Unable to bind to port 3520. Try turning off IPTest if it is on.", MsgBoxStyle.Information, Left(ex.ToString, 60) + "...")
-        'End Try
+        Dim procList() As Process = Process.GetProcessesByName("portrepeater")
+        Dim usingPortRepeater As Boolean = procList.Length > 0
 
-        Try
-            udpClient.Bind(intEndPoint)
-        Catch ex As Exception
-            MsgBox("ELPopup cannot bind to UDP Port 3520. Another Caller ID application is bound to UDP Port 3520 creating this error.  Close this other application and run ELPopup again. If necessary, use Windows 'Resource Monitor' to discover the Caller ID application.  In Resource Monitor, Select Tab  'Network', Window 'Listening Ports' , Sort on 'Port', and find UDP Port 3520.")
-            Exit Sub
-        End Try
-        sReceivedMessage = ""
-        While Not done
+        If usingPortRepeater Then
 
-            Dim receiveBytes(255) As [Byte]
-            Dim nByteCount As Integer
-            Dim bValidMessage As Boolean = True
+            While (Not bound)
+
+                For Each port In nListenPorts
+
+                    Try
+
+                        intEndPoint = New IPEndPoint(IPAddress.Any, port)
+                        udpClient.Bind(intEndPoint)
+                        bound = True
+                        boundPort = port
+                        Exit For
+
+                    Catch ex As Exception
+
+                        Continue For
+
+                    End Try
+
+                Next
+
+            End While
+
+        Else
+
             Try
-                nByteCount = udpClient.Receive(receiveBytes)
+
+                intEndPoint = New IPEndPoint(IPAddress.Any, 3520)
+                udpClient.Bind(intEndPoint)
+                bound = True
+                boundPort = 3520
 
             Catch ex As Exception
-                'If Not TypeOf (ex) Is System.Threading.ThreadAbortException Then MsgBox("Could not receive incoming packet" + vbCrLf + ex.ToString)
-                If TypeOf (ex) Is System.Threading.ThreadAbortException Then udpClient.Close()
-                Continue While
+
+                bound = False
+
             End Try
-            If bTestMode = False Then
-                Try
-                    sReceivedMessage = Encoding.Default.GetString(receiveBytes, 0, nByteCount)
-                    If sReceivedMessage = pLastPacket Then bValidMessage = False
-                    If Not Regex.Match(sReceivedMessage, "\^\^<U>.{6}<S>.{6}\$\$?\d{2,4}").Success Then bValidMessage = False
-                    pLastPacket = sReceivedMessage
-                    If sReceivedMessage.Length > 21 Then RaiseEvent Log("Inbound Packet: " + sReceivedMessage.Substring(21), 2)
-                Catch ex As Exception
 
-                End Try
+        End If
+
+        If Not bound Then
+
+            socketThrown = True
+            waitFor(1000)
+
+            Dim proc As ProcessStartInfo = New ProcessStartInfo("cmd.exe")
+            Dim pr As Process
+            proc.CreateNoWindow = True
+            proc.UseShellExecute = False
+            proc.RedirectStandardInput = True
+            proc.RedirectStandardOutput = True
+            pr = Process.Start(proc)
+            pr.StandardInput.WriteLine("netstat -a -n -o")
+            pr.StandardInput.Close()
+            Dim readIn As String = pr.StandardOutput.ReadToEnd()
+            pr.StandardOutput.Close()
+
+            Dim portMatcher As String = "(UDP)(.*)0.0.0.0:3520(\s*)(\*\:\*)(\s*)([\d]{1,8})"
+
+            Dim pMatch As MatchCollection = Regex.Matches(readIn, portMatcher)
+
+            Dim programName As String = "none"
+
+            Dim thisProgramPID = Integer.Parse(Process.GetCurrentProcess().Id.ToString)
+            Dim foundpId As Integer = 0
+            If (pMatch.Count > 0) Then
+
+                For Each m As Match In pMatch
+                    Dim pid As Integer = Integer.Parse(m.Groups(6).Value)
+
+                    If pid = thisProgramPID Then
+                        Continue For
+                    End If
+
+                    foundpId = pid
+
+                Next
+
+                programName = Process.GetProcessById(foundpId).ProcessName
+
             Else
-                Try
-                    'If InStr(Encoding.Default.GetString(receiveBytes, 0, nByteCount), "<S>") < 1 Then bValidMessage = False
-                    If Not Regex.Match(Encoding.Default.GetString(receiveBytes, 0, nByteCount), "^^<U>.{6}<S>.{6}\$\d\d \w").Success Then bValidMessage = False
-                    If bValidMessage Then sReceivedMessage = Encoding.Default.GetString(receiveBytes, 21, nByteCount - 21)
 
-                Catch ex As Exception
-                End Try
+                programName = "failed"
+
             End If
 
-            If nByteCount > 24 Or bTestMode = True Then
-                If bValidMessage Then RaiseEvent DataReceived(Me)
+            If programName = "failed" Then
+
+                MsgBox("Netstat command failed. Another program other than ELConfig may be bound to ELConfig UDP port.")
+
+            End If
+
+            If Not programName.ToLower() = "idle" And Not programName.ToLower() = "portrepeater" And Not programName = "failed" Then
+
+                Dim result As DialogResult
+                result = vbNull
+
+                If (programName = "none") Then
+
+                    result = MsgBox("ELPopup cannot bind to UDP Port 3520.  Another program may be already bound to this port.  Close any other application that uses Caller ID and relaunch the ELPopup." + Environment.NewLine + Environment.NewLine +
+                                "Windows Resource Monitor can be used to discover the application bound to UDP 3520.  Within Resource Monitor, select the Network tab.  View the Listening Ports window." + Environment.NewLine + Environment.NewLine +
+                                "Select 'Ok' to continue (program may be unstable) or 'Cancel' to quit.", MsgBoxStyle.OkCancel, "Failed to Launch")
+
+                    If (result = DialogResult.Cancel) Then Environment.Exit(0)
+
+                Else
+
+                    result = MsgBox("ELPopup cannot bind to UDP Port 3520.  Another program has already bound itself to this port.  Close any other application that uses Caller ID and relaunch the ELPopup" + Environment.NewLine + Environment.NewLine +
+                                    "This program has found that the application named '" + programName + "' is bound to Port UDP 3520.", 262144, "Failed to Launch")
+
+                    Environment.Exit(0)
+
+                End If
+
+            End If
+
+        End If
+
+        sReceivedMessage = ""
+        udpClient.ReceiveTimeout = 200
+        While Not done AndAlso keepListeninging
+
+            Dim receiveBytes(8100) As [Byte]
+            Dim nByteCount As Integer
+
+            Try
+                nByteCount = udpClient.ReceiveFrom(receiveBytes, 0, 200, SocketFlags.None, intEndPoint)
+
+                ' Below was commented out because of 192.168."43".90 causing issues x.x.43.x
+                'sReceivedMessage = Encoding.UTF7.GetString(receiveBytes, 0, nByteCount)
+                sReceivedMessage = Encoding.Default.GetString(receiveBytes, 0, nByteCount)
+                sReceivedMessageUTF7 = Encoding.UTF7.GetString(receiveBytes, 0, nByteCount)
+
+            Catch ex As Exception
+                Console.WriteLine(ex.ToString())
+                Continue While
+            End Try
+
+            If nByteCount > 20 Then
+                RaiseEvent DataReceived(Me)
             End If
 
         End While
+
+        udpClient.Close()
+
+        RaiseEvent EndReceiving()
+
+
     End Sub
 
-End Class
+    Sub StopListening()
 
-Public Class UdpReceiverClass2
-    Public sReceivedMessage As String
-    Public bPause As Boolean = False
-    Public bTestMode As Boolean = False
-    Private pLastPacket As String
-    Public Event DataReceived(obj As Object)
-    Public Event Log(ByVal LogMessage As String, ByVal iLogLevel As Integer)
+        keepListeninging = False
 
-    Sub UdpIdleReceive()
-
-        Dim done As Boolean = False
-        Dim udpClient As New Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp)
-        Dim intEndPoint As New IPEndPoint(IPAddress.Any, 3521)
-
-        '       Try
-        udpClient.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, True)
-        'udpClient.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ExclusiveAddressUse, True)
-        'Catch ex As Exception
-        'MsgBox("Unable to bind to port 3520. Try turning off IPTest if it is on.", MsgBoxStyle.Information, Left(ex.ToString, 60) + "...")
-        'End Try
-
-        Try
-            udpClient.Bind(intEndPoint)
-        Catch ex As Exception
-            MsgBox("ELPopup could not bind to cannot bind to UDP Port 3521. Another Caller ID application is bound to UDP Port 3521 creating this error.  Close this other application and run ELPopup again. If necessary, use Window 'Resource Monitor' to discover the Caller ID application.  In Resource Monitor, Select Tab  'Network', Window 'Listening Ports' , Sort on 'Protocol', and find UDP Port 3521.")
-            Exit Sub
-        End Try
-        sReceivedMessage = ""
-        While Not done
-
-            Dim receiveBytes(255) As [Byte]
-            Dim nByteCount As Integer
-            Dim bValidMessage As Boolean = True
-            Try
-                nByteCount = udpClient.Receive(receiveBytes)
-
-            Catch ex As Exception
-                'If Not TypeOf (ex) Is System.Threading.ThreadAbortException Then MsgBox("Could not receive incoming packet" + vbCrLf + ex.ToString)
-                If TypeOf (ex) Is System.Threading.ThreadAbortException Then udpClient.Close()
-                Continue While
-            End Try
-            If bTestMode = False Then
-                Try
-                    sReceivedMessage = Encoding.Default.GetString(receiveBytes, 0, nByteCount)
-                    If sReceivedMessage = pLastPacket Then bValidMessage = False
-                    If Not Regex.Match(sReceivedMessage, "\^\^<U>.{6}<S>.{6}\$\$?\d{2,4}").Success Then bValidMessage = False
-                    pLastPacket = sReceivedMessage
-                    If sReceivedMessage.Length > 21 Then RaiseEvent Log("Inbound Packet: " + sReceivedMessage.Substring(21), 2)
-                Catch ex As Exception
-
-                End Try
-            Else
-                Try
-                    'If InStr(Encoding.Default.GetString(receiveBytes, 0, nByteCount), "<S>") < 1 Then bValidMessage = False
-                    If Not Regex.Match(Encoding.Default.GetString(receiveBytes, 0, nByteCount), "^^<U>.{6}<S>.{6}\$\d\d \w").Success Then bValidMessage = False
-                    If bValidMessage Then sReceivedMessage = Encoding.Default.GetString(receiveBytes, 21, nByteCount - 21)
-                Catch ex As Exception
-                End Try
-            End If
-
-            If nByteCount > 24 Or bTestMode = True Then
-                If bValidMessage Then RaiseEvent DataReceived(Me)
-            End If
-
-        End While
     End Sub
 
 End Class

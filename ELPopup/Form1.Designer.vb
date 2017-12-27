@@ -77,10 +77,10 @@ Partial Class Form1
         Me.txtLine11 = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.timerKeyWatch = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearDatabaseOfALLCallsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.timerKeyWatch = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DGVCallList, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RCMenu.SuspendLayout()
         Me.TrayMenu.SuspendLayout()
@@ -535,10 +535,6 @@ Partial Class Form1
         Me.Label13.Text = "L9"
         Me.Label13.Visible = False
         '
-        'timerKeyWatch
-        '
-        Me.timerKeyWatch.Enabled = True
-        '
         'MenuStrip1
         '
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
@@ -560,6 +556,10 @@ Partial Class Form1
         Me.ClearDatabaseOfALLCallsToolStripMenuItem.Name = "ClearDatabaseOfALLCallsToolStripMenuItem"
         Me.ClearDatabaseOfALLCallsToolStripMenuItem.Size = New System.Drawing.Size(217, 22)
         Me.ClearDatabaseOfALLCallsToolStripMenuItem.Text = "&Clear Database of ALL Calls"
+        '
+        'timerKeyWatch
+        '
+        Me.timerKeyWatch.Enabled = True
         '
         'Form1
         '
@@ -601,6 +601,7 @@ Partial Class Form1
         Me.MinimumSize = New System.Drawing.Size(230, 151)
         Me.Name = "Form1"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ELPopup"
         CType(Me.DGVCallList, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RCMenu.ResumeLayout(False)
@@ -665,9 +666,9 @@ Partial Class Form1
     Friend WithEvents CopyNameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CopyNumberToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents timerKeyWatch As System.Windows.Forms.Timer
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ClearDatabaseOfALLCallsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents timerKeyWatch As System.Windows.Forms.Timer
 
 End Class

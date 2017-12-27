@@ -284,6 +284,13 @@ Public Class Options
             updateRelayStatus()
             Form1.DownloadWC2(1)
         End If
+
+        If Not cbSerial.Text = "Do Not Use Serial Server" Then
+
+            Form1.UdpReceiver.StopListening()
+
+        End If
+
     End Sub
 
     Private Sub cbIpRelay_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbIpRelay.TextChanged

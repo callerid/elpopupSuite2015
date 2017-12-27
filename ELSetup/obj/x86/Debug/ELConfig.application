@@ -6,14 +6,14 @@
     <deploymentProvider codebase="http://www.callerid.com/tools/ELSetup/ELConfig.application" />
   </deployment>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="ELConfig.exe.manifest" size="4567">
+    <dependentAssembly dependencyType="install" codebase="ELConfig.exe.manifest" size="4933">
       <assemblyIdentity name="ELConfig.exe" version="1.4.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>7kaPoIqXom7kBxsF4KBpeIlMmEc=</dsig:DigestValue>
+        <dsig:DigestValue>FAstfPtwleGXe2wh7BcbtL7u1Xs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

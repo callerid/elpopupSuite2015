@@ -43,6 +43,7 @@ Partial Class ELCForm1
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SetDeluxeUnitToBasicUnitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.ListeningPortToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TSPort = New System.Windows.Forms.ToolStripTextBox()
@@ -56,16 +57,16 @@ Partial Class ELCForm1
         Me.TBOutgoingMessage = New System.Windows.Forms.TextBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.TSConnectedUnits = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lbDeluxeUnit = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lbListeningOn = New System.Windows.Forms.ToolStripStatusLabel()
         Me.CBDetectedUnits = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.TBSN = New System.Windows.Forms.TextBox()
         Me.TBUN = New System.Windows.Forms.TextBox()
         Me.TBPort = New System.Windows.Forms.TextBox()
         Me.BTNRefresh = New System.Windows.Forms.Button()
@@ -111,6 +112,9 @@ Partial Class ELCForm1
         Me.rbTech3 = New System.Windows.Forms.RadioButton()
         Me.rbTechNone = New System.Windows.Forms.RadioButton()
         Me.sfdSaveLocal = New System.Windows.Forms.SaveFileDialog()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.pbSendingCommand = New System.Windows.Forms.ProgressBar()
+        Me.pbSearching = New System.Windows.Forms.ProgressBar()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -132,7 +136,7 @@ Partial Class ELCForm1
         '
         'AutomaticSetupToolStripMenuItem
         '
-        Me.AutomaticSetupToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResetNetworkToolStripMenuItem, Me.ResetUnitToolStripMenuItem, Me.ToolStripSeparator1, Me.DisplayComputersIPAddressToolStripMenuItem, Me.ToolStripSeparator2, Me.SetUnitToCurrentTimeToolStripMenuItem, Me.SetUnitLineCountTo1ToolStripMenuItem, Me.ToolStripSeparator4, Me.ListeningPortToolStripMenuItem})
+        Me.AutomaticSetupToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResetNetworkToolStripMenuItem, Me.ResetUnitToolStripMenuItem, Me.ToolStripSeparator1, Me.DisplayComputersIPAddressToolStripMenuItem, Me.ToolStripSeparator2, Me.SetUnitToCurrentTimeToolStripMenuItem, Me.SetUnitLineCountTo1ToolStripMenuItem, Me.SetDeluxeUnitToBasicUnitToolStripMenuItem, Me.ToolStripSeparator4, Me.ListeningPortToolStripMenuItem})
         Me.AutomaticSetupToolStripMenuItem.Name = "AutomaticSetupToolStripMenuItem"
         Me.AutomaticSetupToolStripMenuItem.Size = New System.Drawing.Size(72, 20)
         Me.AutomaticSetupToolStripMenuItem.Text = "&Configure"
@@ -140,98 +144,104 @@ Partial Class ELCForm1
         'ResetNetworkToolStripMenuItem
         '
         Me.ResetNetworkToolStripMenuItem.Name = "ResetNetworkToolStripMenuItem"
-        Me.ResetNetworkToolStripMenuItem.Size = New System.Drawing.Size(295, 22)
+        Me.ResetNetworkToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.ResetNetworkToolStripMenuItem.Tag = "reseteth"
         Me.ResetNetworkToolStripMenuItem.Text = "Reset &Ethernet Defaults"
         '
         'ResetUnitToolStripMenuItem
         '
         Me.ResetUnitToolStripMenuItem.Name = "ResetUnitToolStripMenuItem"
-        Me.ResetUnitToolStripMenuItem.Size = New System.Drawing.Size(295, 22)
+        Me.ResetUnitToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.ResetUnitToolStripMenuItem.Tag = "resetunit"
-        Me.ResetUnitToolStripMenuItem.Text = "Reset &Unit Defaults (for full featured units)"
+        Me.ResetUnitToolStripMenuItem.Text = "Set Deluxe Unit Output Defaults"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(292, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(237, 6)
         '
         'DisplayComputersIPAddressToolStripMenuItem
         '
         Me.DisplayComputersIPAddressToolStripMenuItem.Name = "DisplayComputersIPAddressToolStripMenuItem"
-        Me.DisplayComputersIPAddressToolStripMenuItem.Size = New System.Drawing.Size(295, 22)
+        Me.DisplayComputersIPAddressToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.DisplayComputersIPAddressToolStripMenuItem.Text = "Display Computer's &IP Address"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(292, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(237, 6)
         '
         'SetUnitToCurrentTimeToolStripMenuItem
         '
         Me.SetUnitToCurrentTimeToolStripMenuItem.Name = "SetUnitToCurrentTimeToolStripMenuItem"
-        Me.SetUnitToCurrentTimeToolStripMenuItem.Size = New System.Drawing.Size(295, 22)
+        Me.SetUnitToCurrentTimeToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.SetUnitToCurrentTimeToolStripMenuItem.Text = "Set Unit to Current Time"
         '
         'SetUnitLineCountTo1ToolStripMenuItem
         '
         Me.SetUnitLineCountTo1ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.ToolStripMenuItem3, Me.ToolStripMenuItem4, Me.ToolStripMenuItem5, Me.ToolStripMenuItem6, Me.ToolStripMenuItem7, Me.ToolStripMenuItem8})
         Me.SetUnitLineCountTo1ToolStripMenuItem.Name = "SetUnitLineCountTo1ToolStripMenuItem"
-        Me.SetUnitLineCountTo1ToolStripMenuItem.Size = New System.Drawing.Size(295, 22)
+        Me.SetUnitLineCountTo1ToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.SetUnitLineCountTo1ToolStripMenuItem.Text = "Set Unit Line Count"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(86, 22)
         Me.ToolStripMenuItem2.Text = "1"
         '
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(86, 22)
         Me.ToolStripMenuItem3.Text = "5"
         '
         'ToolStripMenuItem4
         '
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(86, 22)
         Me.ToolStripMenuItem4.Text = "9"
         '
         'ToolStripMenuItem5
         '
         Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(86, 22)
         Me.ToolStripMenuItem5.Text = "17"
         '
         'ToolStripMenuItem6
         '
         Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(86, 22)
         Me.ToolStripMenuItem6.Text = "21"
         '
         'ToolStripMenuItem7
         '
         Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
-        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(86, 22)
         Me.ToolStripMenuItem7.Text = "25"
         '
         'ToolStripMenuItem8
         '
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(86, 22)
         Me.ToolStripMenuItem8.Text = "33"
+        '
+        'SetDeluxeUnitToBasicUnitToolStripMenuItem
+        '
+        Me.SetDeluxeUnitToBasicUnitToolStripMenuItem.Name = "SetDeluxeUnitToBasicUnitToolStripMenuItem"
+        Me.SetDeluxeUnitToBasicUnitToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.SetDeluxeUnitToBasicUnitToolStripMenuItem.Text = "Set  Deluxe Unit to Basic Unit"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(292, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(237, 6)
         '
         'ListeningPortToolStripMenuItem
         '
         Me.ListeningPortToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSPort})
         Me.ListeningPortToolStripMenuItem.Name = "ListeningPortToolStripMenuItem"
-        Me.ListeningPortToolStripMenuItem.Size = New System.Drawing.Size(295, 22)
+        Me.ListeningPortToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.ListeningPortToolStripMenuItem.Text = "Listening &Port"
         '
         'TSPort
@@ -279,7 +289,7 @@ Partial Class ELCForm1
         '
         'BTEthernetSend
         '
-        Me.BTEthernetSend.Location = New System.Drawing.Point(279, 302)
+        Me.BTEthernetSend.Location = New System.Drawing.Point(281, 282)
         Me.BTEthernetSend.Name = "BTEthernetSend"
         Me.BTEthernetSend.Size = New System.Drawing.Size(104, 23)
         Me.BTEthernetSend.TabIndex = 3
@@ -288,14 +298,14 @@ Partial Class ELCForm1
         '
         'TBOutgoingMessage
         '
-        Me.TBOutgoingMessage.Location = New System.Drawing.Point(208, 304)
+        Me.TBOutgoingMessage.Location = New System.Drawing.Point(210, 284)
         Me.TBOutgoingMessage.Name = "TBOutgoingMessage"
         Me.TBOutgoingMessage.Size = New System.Drawing.Size(65, 20)
         Me.TBOutgoingMessage.TabIndex = 1
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSConnectedUnits})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TSConnectedUnits, Me.lbDeluxeUnit, Me.lbListeningOn})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 662)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(619, 22)
@@ -305,11 +315,24 @@ Partial Class ELCForm1
         'TSConnectedUnits
         '
         Me.TSConnectedUnits.Name = "TSConnectedUnits"
-        Me.TSConnectedUnits.Size = New System.Drawing.Size(604, 17)
+        Me.TSConnectedUnits.Size = New System.Drawing.Size(360, 17)
         Me.TSConnectedUnits.Spring = True
         Me.TSConnectedUnits.Tag = "units"
         Me.TSConnectedUnits.Text = "No Units Detected"
         Me.TSConnectedUnits.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lbDeluxeUnit
+        '
+        Me.lbDeluxeUnit.ForeColor = System.Drawing.Color.Maroon
+        Me.lbDeluxeUnit.Name = "lbDeluxeUnit"
+        Me.lbDeluxeUnit.Size = New System.Drawing.Size(140, 17)
+        Me.lbDeluxeUnit.Text = "Deluxe Unit Not Detected"
+        '
+        'lbListeningOn
+        '
+        Me.lbListeningOn.Name = "lbListeningOn"
+        Me.lbListeningOn.Size = New System.Drawing.Size(104, 17)
+        Me.lbListeningOn.Text = "Listening On: 3520"
         '
         'CBDetectedUnits
         '
@@ -330,28 +353,15 @@ Partial Class ELCForm1
         Me.Label9.TabIndex = 21
         Me.Label9.Text = "Detected Units"
         '
-        'Label10
-        '
-        Me.Label10.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(3, 0)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(101, 26)
-        Me.Label10.TabIndex = 22
-        Me.Label10.Text = "Ethernet ID Number"
-        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'Label11
         '
         Me.Label11.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(3, 26)
+        Me.Label11.Location = New System.Drawing.Point(3, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(101, 29)
+        Me.Label11.Size = New System.Drawing.Size(93, 29)
         Me.Label11.TabIndex = 22
         Me.Label11.Text = "Unit Number"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -359,12 +369,12 @@ Partial Class ELCForm1
         'Label12
         '
         Me.Label12.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(3, 55)
+        Me.Label12.Location = New System.Drawing.Point(3, 29)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(101, 29)
+        Me.Label12.Size = New System.Drawing.Size(93, 29)
         Me.Label12.TabIndex = 22
         Me.Label12.Text = "Unit IP Address"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -372,12 +382,12 @@ Partial Class ELCForm1
         'Label13
         '
         Me.Label13.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(3, 84)
+        Me.Label13.Location = New System.Drawing.Point(3, 58)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(101, 29)
+        Me.Label13.Size = New System.Drawing.Size(93, 29)
         Me.Label13.TabIndex = 22
         Me.Label13.Text = "Unit MAC Address"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -385,12 +395,12 @@ Partial Class ELCForm1
         'Label14
         '
         Me.Label14.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(3, 142)
+        Me.Label14.Location = New System.Drawing.Point(3, 116)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(101, 29)
+        Me.Label14.Size = New System.Drawing.Size(93, 29)
         Me.Label14.TabIndex = 22
         Me.Label14.Text = "Destination IP"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -398,12 +408,12 @@ Partial Class ELCForm1
         'Label15
         '
         Me.Label15.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(3, 171)
+        Me.Label15.Location = New System.Drawing.Point(3, 145)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(101, 33)
+        Me.Label15.Size = New System.Drawing.Size(93, 32)
         Me.Label15.TabIndex = 22
         Me.Label15.Text = "Destination MAC"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -411,28 +421,19 @@ Partial Class ELCForm1
         'Label16
         '
         Me.Label16.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(3, 113)
+        Me.Label16.Location = New System.Drawing.Point(3, 87)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(101, 29)
+        Me.Label16.Size = New System.Drawing.Size(93, 29)
         Me.Label16.TabIndex = 22
         Me.Label16.Text = "Port"
         Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TBSN
-        '
-        Me.TBSN.Location = New System.Drawing.Point(110, 3)
-        Me.TBSN.Name = "TBSN"
-        Me.TBSN.ReadOnly = True
-        Me.TBSN.Size = New System.Drawing.Size(176, 20)
-        Me.TBSN.TabIndex = 23
-        Me.TBSN.Tag = "sn"
-        '
         'TBUN
         '
-        Me.TBUN.Location = New System.Drawing.Point(110, 29)
+        Me.TBUN.Location = New System.Drawing.Point(102, 3)
         Me.TBUN.Name = "TBUN"
         Me.TBUN.ReadOnly = True
         Me.TBUN.Size = New System.Drawing.Size(176, 20)
@@ -441,7 +442,7 @@ Partial Class ELCForm1
         '
         'TBPort
         '
-        Me.TBPort.Location = New System.Drawing.Point(110, 116)
+        Me.TBPort.Location = New System.Drawing.Point(102, 90)
         Me.TBPort.Name = "TBPort"
         Me.TBPort.ReadOnly = True
         Me.TBPort.Size = New System.Drawing.Size(176, 20)
@@ -459,7 +460,7 @@ Partial Class ELCForm1
         '
         'BTNChangeUid
         '
-        Me.BTNChangeUid.Location = New System.Drawing.Point(292, 29)
+        Me.BTNChangeUid.Location = New System.Drawing.Point(284, 3)
         Me.BTNChangeUid.Name = "BTNChangeUid"
         Me.BTNChangeUid.Size = New System.Drawing.Size(75, 23)
         Me.BTNChangeUid.TabIndex = 28
@@ -469,7 +470,7 @@ Partial Class ELCForm1
         '
         'BTNChangeIpInt
         '
-        Me.BTNChangeIpInt.Location = New System.Drawing.Point(292, 58)
+        Me.BTNChangeIpInt.Location = New System.Drawing.Point(284, 32)
         Me.BTNChangeIpInt.Name = "BTNChangeIpInt"
         Me.BTNChangeIpInt.Size = New System.Drawing.Size(75, 23)
         Me.BTNChangeIpInt.TabIndex = 29
@@ -479,7 +480,7 @@ Partial Class ELCForm1
         '
         'BTNChangeMacInt
         '
-        Me.BTNChangeMacInt.Location = New System.Drawing.Point(292, 87)
+        Me.BTNChangeMacInt.Location = New System.Drawing.Point(284, 61)
         Me.BTNChangeMacInt.Name = "BTNChangeMacInt"
         Me.BTNChangeMacInt.Size = New System.Drawing.Size(75, 23)
         Me.BTNChangeMacInt.TabIndex = 30
@@ -489,7 +490,7 @@ Partial Class ELCForm1
         '
         'BTNChangePort
         '
-        Me.BTNChangePort.Location = New System.Drawing.Point(292, 116)
+        Me.BTNChangePort.Location = New System.Drawing.Point(284, 90)
         Me.BTNChangePort.Name = "BTNChangePort"
         Me.BTNChangePort.Size = New System.Drawing.Size(75, 23)
         Me.BTNChangePort.TabIndex = 31
@@ -499,7 +500,7 @@ Partial Class ELCForm1
         '
         'BTNChangeIpDest
         '
-        Me.BTNChangeIpDest.Location = New System.Drawing.Point(292, 145)
+        Me.BTNChangeIpDest.Location = New System.Drawing.Point(284, 119)
         Me.BTNChangeIpDest.Name = "BTNChangeIpDest"
         Me.BTNChangeIpDest.Size = New System.Drawing.Size(75, 23)
         Me.BTNChangeIpDest.TabIndex = 32
@@ -509,7 +510,7 @@ Partial Class ELCForm1
         '
         'BTNChangeMacDest
         '
-        Me.BTNChangeMacDest.Location = New System.Drawing.Point(292, 174)
+        Me.BTNChangeMacDest.Location = New System.Drawing.Point(284, 148)
         Me.BTNChangeMacDest.Name = "BTNChangeMacDest"
         Me.BTNChangeMacDest.Size = New System.Drawing.Size(75, 23)
         Me.BTNChangeMacDest.TabIndex = 33
@@ -523,37 +524,35 @@ Partial Class ELCForm1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.Controls.Add(Me.MACInternal, 1, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label10, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.BTNChangeMacDest, 2, 6)
-        Me.TableLayoutPanel1.Controls.Add(Me.BTNChangeIpDest, 2, 5)
-        Me.TableLayoutPanel1.Controls.Add(Me.TBSN, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.BTNChangePort, 2, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label15, 0, 6)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label11, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.BTNChangeMacInt, 2, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.TBUN, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.BTNChangeIpInt, 2, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label14, 0, 5)
-        Me.TableLayoutPanel1.Controls.Add(Me.BTNChangeUid, 2, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label12, 0, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label16, 0, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label13, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.TBPort, 1, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.IPInternal, 1, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.IPDest, 1, 5)
-        Me.TableLayoutPanel1.Controls.Add(Me.MACDest, 1, 6)
+        Me.TableLayoutPanel1.Controls.Add(Me.MACInternal, 1, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.BTNChangeMacDest, 2, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.BTNChangeIpDest, 2, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.BTNChangePort, 2, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label15, 0, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label11, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.BTNChangeMacInt, 2, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.TBUN, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.BTNChangeIpInt, 2, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label14, 0, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.BTNChangeUid, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label12, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label16, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label13, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.TBPort, 1, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.IPInternal, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.IPDest, 1, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.MACDest, 1, 5)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(16, 19)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 7
+        Me.TableLayoutPanel1.RowCount = 6
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(381, 204)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(381, 177)
         Me.TableLayoutPanel1.TabIndex = 35
         '
         'MACInternal
@@ -561,7 +560,7 @@ Partial Class ELCForm1
         Me.MACInternal.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.MACInternal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.MACInternal.Enabled = False
-        Me.MACInternal.Location = New System.Drawing.Point(110, 87)
+        Me.MACInternal.Location = New System.Drawing.Point(102, 61)
         Me.MACInternal.Name = "MACInternal"
         Me.MACInternal.Size = New System.Drawing.Size(161, 20)
         Me.MACInternal.TabIndex = 37
@@ -573,7 +572,7 @@ Partial Class ELCForm1
         Me.IPInternal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.IPInternal.Enabled = False
         Me.IPInternal.HexIP = "FFFFFFFF"
-        Me.IPInternal.Location = New System.Drawing.Point(110, 58)
+        Me.IPInternal.Location = New System.Drawing.Point(102, 32)
         Me.IPInternal.MinimumSize = New System.Drawing.Size(125, 20)
         Me.IPInternal.Name = "IPInternal"
         Me.IPInternal.Size = New System.Drawing.Size(125, 20)
@@ -586,7 +585,7 @@ Partial Class ELCForm1
         Me.IPDest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.IPDest.Enabled = False
         Me.IPDest.HexIP = "FFFFFFFF"
-        Me.IPDest.Location = New System.Drawing.Point(110, 145)
+        Me.IPDest.Location = New System.Drawing.Point(102, 119)
         Me.IPDest.MinimumSize = New System.Drawing.Size(125, 20)
         Me.IPDest.Name = "IPDest"
         Me.IPDest.Size = New System.Drawing.Size(125, 20)
@@ -598,7 +597,7 @@ Partial Class ELCForm1
         Me.MACDest.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.MACDest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.MACDest.Enabled = False
-        Me.MACDest.Location = New System.Drawing.Point(110, 174)
+        Me.MACDest.Location = New System.Drawing.Point(102, 148)
         Me.MACDest.Name = "MACDest"
         Me.MACDest.Size = New System.Drawing.Size(161, 20)
         Me.MACDest.TabIndex = 38
@@ -609,7 +608,7 @@ Partial Class ELCForm1
         Me.GroupBox1.Controls.Add(Me.TableLayoutPanel1)
         Me.GroupBox1.Location = New System.Drawing.Point(26, 64)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(403, 232)
+        Me.GroupBox1.Size = New System.Drawing.Size(403, 212)
         Me.GroupBox1.TabIndex = 36
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Settings"
@@ -619,7 +618,7 @@ Partial Class ELCForm1
         Me.GBInfo.Controls.Add(Me.LBLinfo)
         Me.GBInfo.Location = New System.Drawing.Point(435, 64)
         Me.GBInfo.Name = "GBInfo"
-        Me.GBInfo.Size = New System.Drawing.Size(172, 232)
+        Me.GBInfo.Size = New System.Drawing.Size(172, 212)
         Me.GBInfo.TabIndex = 37
         Me.GBInfo.TabStop = False
         Me.GBInfo.Text = "Info"
@@ -628,17 +627,17 @@ Partial Class ELCForm1
         '
         Me.LBLinfo.Location = New System.Drawing.Point(6, 19)
         Me.LBLinfo.Name = "LBLinfo"
-        Me.LBLinfo.Size = New System.Drawing.Size(159, 207)
+        Me.LBLinfo.Size = New System.Drawing.Size(159, 193)
         Me.LBLinfo.TabIndex = 0
         Me.LBLinfo.Text = "Info"
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(389, 302)
+        Me.Label1.Location = New System.Drawing.Point(391, 282)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(202, 28)
         Me.Label1.TabIndex = 38
-        Me.Label1.Text = "For use with Whozz Calling? " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & """full featured"" series units."
+        Me.Label1.Text = "For use with Whozz Calling? " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Deluxe series units."
         '
         'cmPassword
         '
@@ -654,7 +653,7 @@ Partial Class ELCForm1
         '
         'tbLiteral
         '
-        Me.tbLiteral.Location = New System.Drawing.Point(380, 39)
+        Me.tbLiteral.Location = New System.Drawing.Point(26, 282)
         Me.tbLiteral.Name = "tbLiteral"
         Me.tbLiteral.Size = New System.Drawing.Size(29, 20)
         Me.tbLiteral.TabIndex = 39
@@ -662,7 +661,7 @@ Partial Class ELCForm1
         '
         'btnRetToggles
         '
-        Me.btnRetToggles.Location = New System.Drawing.Point(76, 302)
+        Me.btnRetToggles.Location = New System.Drawing.Point(75, 282)
         Me.btnRetToggles.Name = "btnRetToggles"
         Me.btnRetToggles.Size = New System.Drawing.Size(105, 23)
         Me.btnRetToggles.TabIndex = 40
@@ -675,8 +674,8 @@ Partial Class ELCForm1
         Me.dgvPhoneData.AllowUserToDeleteRows = False
         Me.dgvPhoneData.AllowUserToResizeRows = False
         Me.dgvPhoneData.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvPhoneData.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -696,7 +695,7 @@ Partial Class ELCForm1
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvPhoneData.DefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvPhoneData.Location = New System.Drawing.Point(0, 480)
+        Me.dgvPhoneData.Location = New System.Drawing.Point(0, 459)
         Me.dgvPhoneData.Name = "dgvPhoneData"
         Me.dgvPhoneData.ReadOnly = True
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -710,7 +709,7 @@ Partial Class ELCForm1
         Me.dgvPhoneData.RowHeadersVisible = False
         Me.dgvPhoneData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvPhoneData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvPhoneData.Size = New System.Drawing.Size(622, 179)
+        Me.dgvPhoneData.Size = New System.Drawing.Size(622, 200)
         Me.dgvPhoneData.TabIndex = 41
         '
         'LineNumber
@@ -790,7 +789,7 @@ Partial Class ELCForm1
         Me.dgvCommData.BackgroundColor = System.Drawing.Color.White
         Me.dgvCommData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCommData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.data})
-        Me.dgvCommData.Location = New System.Drawing.Point(0, 350)
+        Me.dgvCommData.Location = New System.Drawing.Point(0, 330)
         Me.dgvCommData.Name = "dgvCommData"
         Me.dgvCommData.ReadOnly = True
         Me.dgvCommData.RowHeadersVisible = False
@@ -808,7 +807,7 @@ Partial Class ELCForm1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 334)
+        Me.Label2.Location = New System.Drawing.Point(12, 314)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(105, 13)
         Me.Label2.TabIndex = 43
@@ -817,7 +816,7 @@ Partial Class ELCForm1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 464)
+        Me.Label3.Location = New System.Drawing.Point(12, 440)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(64, 13)
         Me.Label3.TabIndex = 44
@@ -825,7 +824,7 @@ Partial Class ELCForm1
         '
         'btnClearCommData
         '
-        Me.btnClearCommData.Location = New System.Drawing.Point(574, 326)
+        Me.btnClearCommData.Location = New System.Drawing.Point(574, 306)
         Me.btnClearCommData.Name = "btnClearCommData"
         Me.btnClearCommData.Size = New System.Drawing.Size(42, 21)
         Me.btnClearCommData.TabIndex = 45
@@ -834,7 +833,7 @@ Partial Class ELCForm1
         '
         'btnClearPhoneData
         '
-        Me.btnClearPhoneData.Location = New System.Drawing.Point(574, 456)
+        Me.btnClearPhoneData.Location = New System.Drawing.Point(574, 432)
         Me.btnClearPhoneData.Name = "btnClearPhoneData"
         Me.btnClearPhoneData.Size = New System.Drawing.Size(42, 21)
         Me.btnClearPhoneData.TabIndex = 46
@@ -892,11 +891,33 @@ Partial Class ELCForm1
         Me.rbTechNone.Text = "None"
         Me.rbTechNone.UseVisualStyleBackColor = True
         '
+        'Timer1
+        '
+        Me.Timer1.Interval = 250
+        '
+        'pbSendingCommand
+        '
+        Me.pbSendingCommand.Location = New System.Drawing.Point(210, 310)
+        Me.pbSendingCommand.Name = "pbSendingCommand"
+        Me.pbSendingCommand.Size = New System.Drawing.Size(65, 14)
+        Me.pbSendingCommand.TabIndex = 51
+        Me.pbSendingCommand.Visible = False
+        '
+        'pbSearching
+        '
+        Me.pbSearching.Location = New System.Drawing.Point(380, 43)
+        Me.pbSearching.Name = "pbSearching"
+        Me.pbSearching.Size = New System.Drawing.Size(106, 12)
+        Me.pbSearching.TabIndex = 52
+        Me.pbSearching.Visible = False
+        '
         'ELCForm1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(619, 684)
+        Me.Controls.Add(Me.pbSearching)
+        Me.Controls.Add(Me.pbSendingCommand)
         Me.Controls.Add(Me.rbTechNone)
         Me.Controls.Add(Me.rbTech3)
         Me.Controls.Add(Me.rbTech2)
@@ -951,14 +972,12 @@ Partial Class ELCForm1
     Friend WithEvents TSConnectedUnits As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents CBDetectedUnits As System.Windows.Forms.ComboBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents TBSN As System.Windows.Forms.TextBox
     Friend WithEvents TBUN As System.Windows.Forms.TextBox
     Friend WithEvents TBPort As System.Windows.Forms.TextBox
     Friend WithEvents BTNRefresh As System.Windows.Forms.Button
@@ -1026,5 +1045,11 @@ Partial Class ELCForm1
     Friend WithEvents ToolStripMenuItem6 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem7 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem8 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SetDeluxeUnitToBasicUnitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents lbListeningOn As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents lbDeluxeUnit As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents pbSendingCommand As System.Windows.Forms.ProgressBar
+    Friend WithEvents pbSearching As System.Windows.Forms.ProgressBar
 
 End Class

@@ -15,11 +15,23 @@ Public Class ELCForm1
     Public myUdpRepeater As UdpClient
     Public myTech As IPEndPoint = New IPEndPoint(IPAddress.Parse("72.16.182.60"), 3531)
     Public udpRepeatCode As String = "none"
-    
+    Private setToDeluxe As Boolean
+    Private vCommandReturned As Boolean = False
+    Public prevent8LineWarning As Boolean = False
+    Public isDeluxe As Boolean = False
+    Private preventDisplayOfCommData As Boolean = False
+    Private searchingForUnit As Boolean = False
+    Public endSearchAndExit As Boolean = False
+    Private loadingIn As Boolean = True
+
 #Region "Dimensions"
     Private Broadcast As ELCBroadcaster
-    Private WithEvents UdpReceiver As New ELCUdpReceiverClass
+
+    Public WithEvents UdpReceiver As New ELCUdpReceiverClass
+    Public WithEvents UdpReceiver2 As New ELCUdpReceiverClass
     Private UdpReceiveThread As New System.Threading.Thread(AddressOf UdpReceiver.UdpIdleReceive)
+    Private UdpReceiveThread2 As New System.Threading.Thread(AddressOf UdpReceiver2.UdpIdleReceive)
+
     Private myThread As New System.Threading.Thread(AddressOf EthernetLinkPing)
     Private LEthernetLink As New List(Of EthernetLinkDevice)
     Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
@@ -66,6 +78,7 @@ Public Class ELCForm1
     End Class
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
         Dim chkMutex As myMutex = New myMutex
         'Check for FoneTracs, AKA "SmartCall"
         While chkMutex.IdentafoneInstanceRunning(False)
@@ -79,18 +92,6 @@ Public Class ELCForm1
             Exit Sub
         End If
 
-        Dim procList() As Process = Process.GetProcessesByName("elpopup")
-        If procList.Length > 0 Then
-            Dim strProcName As String = procList(0).ProcessName
-            Dim iProcID As Integer = procList(0).Id
-            If My.Computer.FileSystem.FileExists(procList(0).MainModule.FileName) Then
-                Dim processProperties As New ProcessStartInfo
-                processProperties.FileName = procList(0).MainModule.FileName
-                processProperties.Arguments = "-pause"
-                Dim myProcess As Process = Process.Start(processProperties)
-            End If
-        End If
-
         For Each arg As String In Environment.GetCommandLineArgs()
             'ApplicationEvents.vb responds to arguments that occur after the program is already loaded.
             If arg = "-devmode" Then
@@ -102,9 +103,14 @@ Public Class ELCForm1
         Next
 
         timerSendUpdate.Start()
-        
+
         UdpReceiveThread.IsBackground = True
-        UdpReceiver.nListenPort = nListeningPort
+        UdpReceiveThread2.IsBackground = True
+        'UdpReceiver.nListenPort = nListeningPort
+        UdpReceiver2.SetListenPorts(New Integer() {6699})
+        UdpReceiver2.boundPort = 6699
+        UdpReceiver2.newPort = 6699
+        UdpReceiveThread2.Start()
         UdpReceiveThread.Start()
 
         infoBox() 'Clear the info text box
@@ -122,13 +128,18 @@ Public Class ELCForm1
                 stNetworkInfo += stInfo + vbCrLf + vbCrLf
             End If
         Next
-        RefreshData()
+        'RefreshData()
         'EthernetLinkPing()
 
         ' Show version
         Me.Text = "Ethernet Link Config Plus - Version " + My.Application.Info.Version.ToString
 
-        BTNRefresh_Click(sender, e)
+        'BTNRefresh_Click(sender, e)
+        RefreshData()
+
+        vCommandReturned = False
+        Timer1.Enabled = True
+        Timer1.Start()
 
     End Sub
 
@@ -147,18 +158,62 @@ Public Class ELCForm1
                 Dim myProcess As Process = Process.Start(processProperties)
             End If
         End If
+        ProgramClosed = True
     End Sub
 
+    Private Delegate Sub UpdateBoundPortCallback(ByVal bound As String)
+    Private Sub UpdateBoundPort(ByVal bound As String)
 
-    Private Sub DataReceivedEventHandler() Handles UdpReceiver.DataReceived
+        If Me.InvokeRequired Then
+            Dim d As New UpdateBoundPortCallback(AddressOf UpdateBoundPort)
+            Me.Invoke(d, New Object() {bound})
+        Else
+
+            lbListeningOn.Text = "Listening on: " + bound
+            TSPort.Text = bound
+
+        End If
+
+    End Sub
+
+    Private Sub DataReceivedEventHandler(ByVal sender As Object) Handles UdpReceiver.DataReceived, UdpReceiver2.DataReceived
+
+        UpdateBoundPort(sender.boundPort.ToString)
+
         Dim sReceivedText As String
         Dim sReceivedTextUTF7 As String
 
-        sReceivedText = UdpReceiver.sReceivedMessage
-        sReceivedTextUTF7 = UdpReceiver.sReceivedMessageUTF7
+        sReceivedText = sender.sReceivedMessage
+        sReceivedTextUTF7 = sender.sReceivedMessageUTF7
+
+        If sReceivedText.Contains("a") And
+            sReceivedText.Contains("E") And
+            sReceivedText.Contains("C") And
+            sReceivedText.Contains("X") And
+            sReceivedText.Contains("U") And
+            sReceivedText.Contains("K") And
+            sReceivedText.Contains("S") And
+            sReceivedText.Contains("B") And
+            sReceivedText.Contains("D") And
+            sReceivedText.Contains("O") And
+            sReceivedText.Contains("T") Then
+
+            setToDeluxe = True
+
+        Else
+            setToDeluxe = False
+        End If
+
+        If sReceivedText.Length = 57 Then
+            vCommandReturned = True
+            updateDeluxedLabel(True)
+        End If
 
         If InStr(sReceivedText, "IdX") > 1 Then ' don't accept ^^IdX echos
         ElseIf sReceivedText.Length = 90 Then 'only setup information totals exactly 90 chars
+
+            searchingForUnit = False
+
             Dim ELink As New EthernetLinkDevice
             ELink.ImportData(sReceivedText, sReceivedTextUTF7)
 
@@ -199,6 +254,10 @@ Public Class ELCForm1
         Debug.WriteLine(sReceivedText)
     End Sub
 
+    Private Sub ListenerPortChangeHandler(ByVal sender As Object) Handles UdpReceiver.PortChanged, UdpReceiver2.PortChanged
+        lbListeningOn.Text = "Listening on: " + sender.boundPort.ToString
+    End Sub
+
     Private Sub CBDetectedUnits_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CBDetectedUnits.SelectedIndexChanged
         If Not sender.SelectedItem.ToString.Contains("No") Then setTextBox(LEthernetLink(sender.SelectedIndex))
     End Sub
@@ -211,8 +270,31 @@ Public Class ELCForm1
         If TBOutgoingMessage.Text.Length > 0 Then
             If TBOutgoingMessage.Text.Substring(0, 1) = "N" Or TBOutgoingMessage.Text.Substring(0, 1) = "Z" Or TBOutgoingMessage.Text.Substring(0, 1) = "W" Then
                 suffix = vbCrLf
+                BrandValue("^^Id-" + TBOutgoingMessage.Text.Replace("§", vbCr) + suffix)
+            Else
+
+                pbSendingCommand.Visible = True
+                pbSendingCommand.Maximum = TBOutgoingMessage.Text.Length + 1
+                pbSendingCommand.Value = 1
+
+                For i = 0 To TBOutgoingMessage.Text.Length - 1
+
+                    waitFor(150)
+                    BrandValue("^^Id-" + TBOutgoingMessage.Text(i))
+                    udpRepeat("SENT COMMAND: " + TBOutgoingMessage.Text(i))
+
+                    If (pbSendingCommand.Value < pbSendingCommand.Maximum) Then pbSendingCommand.Value += 1
+
+                Next
+
+                waitFor(500)
+                pbSendingCommand.Visible = False
+                pbSendingCommand.Value = 0
+                btnRetToggles.PerformClick()
+                Return
+
             End If
-            BrandValue("^^Id-" + TBOutgoingMessage.Text.Replace("§", vbCr) + suffix)
+
             waitFor(500)
 
             udpRepeat("SENT COMMAND: " + TBOutgoingMessage.Text)
@@ -261,10 +343,12 @@ Public Class ELCForm1
     End Sub
 
     Private Sub BTNRefresh_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BTNRefresh.Click
-        RefreshData()
 
+        RefreshData()
+        Timer1.Enabled = True
+        Timer1.Start()
         waitFor(2000)
-        
+
         If CBDetectedUnits.Items.Count = 0 Then
             Label9.Text = "No Units Found"
             Label9.Location = New Point(149, Label9.Location.Y)
@@ -281,7 +365,7 @@ Public Class ELCForm1
         CBDetectedUnits.Items.Clear()
         TSConnectedUnits.Text = "Refreshing..."
         TBPort.Text = "????"
-        TBSN.Text = "????????????"
+        'TBSN.Text = "????????????"
         TBUN.Text = "????????????"
         IPDest.Text = "?.?.?.?"
         IPInternal.Text = "?.?.?.?"
@@ -308,7 +392,7 @@ Public Class ELCForm1
     End Sub
 
     Private Sub BTNChange_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles BTNChangeUid.MouseEnter, BTNChangeIpDest.MouseEnter, BTNChangeIpInt.MouseEnter, BTNChangeMacDest.MouseEnter, BTNChangeMacInt.MouseEnter, BTNChangePort.MouseEnter, _
-    MACDest.MouseEnter, MACInternal.MouseEnter, IPDest.MouseEnter, IPInternal.MouseEnter, TBPort.MouseEnter, TBUN.MouseEnter, TBSN.MouseEnter, TSConnectedUnits.MouseEnter, CBDetectedUnits.MouseEnter, ResetNetworkToolStripMenuItem.MouseEnter, ResetUnitToolStripMenuItem.MouseEnter
+    MACDest.MouseEnter, MACInternal.MouseEnter, IPDest.MouseEnter, IPInternal.MouseEnter, TBPort.MouseEnter, TBUN.MouseEnter, TSConnectedUnits.MouseEnter, CBDetectedUnits.MouseEnter, ResetNetworkToolStripMenuItem.MouseEnter, ResetUnitToolStripMenuItem.MouseEnter
         Select Case sender.Tag
             Case "ipdest"
                 infoBox("Destination IP", "This is the address of the device that the Whozz Calling? will send data to." + vbCrLf + vbCrLf + "255.255.255.255 is a universal address that applies to every computer on the network.")
@@ -367,7 +451,7 @@ Public Class ELCForm1
         If CBDetectedUnits.Items.Count > 0 Then
             For i = 0 To CBDetectedUnits.Items.Count - 1
 
-                CBDetectedUnits.Items(0) = (CBDetectedUnits.Items.Count).ToString + " Unit"
+                CBDetectedUnits.Items(i) = (CBDetectedUnits.Items(i)).ToString
 
             Next
         End If
@@ -385,12 +469,12 @@ Public Class ELCForm1
     End Sub
 
     Public Sub setTextBox(ByVal eldFound As EthernetLinkDevice) ' populates the form with Ethernet Link data
-        If TBSN.InvokeRequired Then
+        If TBUN.InvokeRequired Then
             Dim d As New setTextBox_Delegate(AddressOf setTextBox)
             Me.Invoke(d, New Object() {eldFound})
         Else
             Dim tmpSN As String = eldFound.Serial
-            TBSN.Text = tmpSN.Substring(0, 2) + "-" + tmpSN.Substring(2, 2) + "-" + tmpSN.Substring(4, 6) + "-" + tmpSN.Substring(10)
+            'TBSN.Text = tmpSN.Substring(0, 2) + "-" + tmpSN.Substring(2, 2) + "-" + tmpSN.Substring(4, 6) + "-" + tmpSN.Substring(10)
             TBUN.Text = eldFound.UnitID
             TBPort.Text = eldFound.DestPort
             IPInternal.Text = eldFound.IntIP
@@ -410,6 +494,9 @@ Public Class ELCForm1
             Dim d As New IncomingData_Delegate(AddressOf AddPacketLine)
             Me.Invoke(d, New Object() {textString, textStringUTF7})
         Else
+
+            If preventDisplayOfCommData Then Return
+
             Dim uid As String
             Dim sn As String
             uid = textString.Substring(5, 6)
@@ -479,6 +566,13 @@ Public Class ELCForm1
                 Dim timeMatch As Match
 
                 lineNumber = regCallMatch.Groups.Item(1).Value
+
+                If Integer.Parse(lineNumber.Trim()) > 8 Then
+                    If Not prevent8LineWarning Then
+                        FrmOver8Lines.Show()
+                    End If
+                End If
+
                 If lineNumber.Length = 1 Then lineNumber = "0" + lineNumber
                 startEnd = regCallMatch.Groups.Item(3).Value
                 inputOutput = regCallMatch.Groups.Item(2).Value
@@ -564,11 +658,74 @@ Public Class ELCForm1
     End Sub
 
     Private Sub EthernetLinkPing() ' search for Ethernet link via the ethernet.
+
+        If (searchingForUnit) Then Return
+
         TSConnectedUnits.Text = "No units detected"
         CBDetectedUnits.Items.Clear()
-        BrandValue("^^IdX")
-    End Sub
+        searchingForUnit = True
+        Dim repeats As Integer = 20
+        If (loadingIn) Then
+            repeats = 5
+            loadingIn = False
+        End If
 
+        TSConnectedUnits.Text = "Searching for units."
+        pbSearching.Visible = True
+        pbSearching.Maximum = repeats
+        pbSearching.Value = 1
+
+        While searchingForUnit And repeats > 0
+
+            If Not Me.Visible Then
+                Application.Exit()
+                End
+                Me.Close()
+            End If
+
+            If (endSearchAndExit) Then
+                Application.Exit()
+                End
+                Me.Close()
+            End If
+
+            BrandValue("^^IdX" + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0) + Hex(0))
+            repeats -= 1
+            waitFor(500)
+
+            Select Case TSConnectedUnits.Text
+
+                Case "Searching for units."
+                    TSConnectedUnits.Text = "Searching for units.."
+                Case "Searching for units.."
+                    TSConnectedUnits.Text = "Searching for units..."
+                Case Else
+                    TSConnectedUnits.Text = "Searching for units."
+
+            End Select
+
+            If (pbSearching.Value < pbSearching.Maximum) Then pbSearching.Value += 1
+
+        End While
+
+        pbSearching.Value = 0
+        pbSearching.Visible = False
+
+        If CBDetectedUnits.Items.Count > 1 Then
+            TSConnectedUnits.Text = CBDetectedUnits.Items.Count.ToString + " Units Detected"
+        ElseIf CBDetectedUnits.Items.Count = 1 Then
+            TSConnectedUnits.Text = "1 Unit Detected"
+        Else
+            TSConnectedUnits.Text = "No Unit Detected"
+        End If
+
+        searchingForUnit = False
+        preventDisplayOfCommData = True
+        BrandValue("^^Id-V")
+        waitFor(500)
+        preventDisplayOfCommData = False
+
+    End Sub
 
     Private Sub BrandValue(ByVal sValue As String)
         Debug.WriteLine(sValue)
@@ -576,7 +733,7 @@ Public Class ELCForm1
         If InStr(sValue, "?") > 0 And InStr(sValue, "Id-") = 0 Then Exit Sub
         Dim brBroadcast As New ELCBroadcaster("255.255.255.255", nListeningPort, sValue)
         brBroadcast.nListenPort = nListeningPort
-        brBroadcast.SendMessage()
+        brBroadcast.SendMessage(UdpReceiver)
     End Sub
 
     Private Overloads Sub Unlock_textbox(ByVal null As Nullable)
@@ -614,6 +771,25 @@ Public Class ELCForm1
         Button.text = "Update"
     End Sub
 
+    Private Delegate Sub updateDeluxedLabelCallback(ByVal value As Boolean)
+    Private Sub updateDeluxedLabel(ByVal value As Boolean)
+
+        If Me.InvokeRequired Then
+            Dim d As New updateDeluxedLabelCallback(AddressOf updateDeluxedLabel)
+            Me.Invoke(d, New Object() {value})
+        Else
+
+            If value Then
+                lbDeluxeUnit.Text = "Deluxe Unit Detected"
+                lbDeluxeUnit.ForeColor = Color.Green
+            Else
+                lbDeluxeUnit.Text = "Deluxe Unit Not Detected"
+                lbDeluxeUnit.ForeColor = Color.Maroon
+            End If
+
+        End If
+
+    End Sub
 
     Private Sub update_ELDevice(ByVal Button As Object)
         Select Case Button.name
@@ -624,15 +800,16 @@ Public Class ELCForm1
                 BrandValue("^^IdI" + IPInternal.HexIP)
                 IPInternal.Enabled = False
             Case "BTNChangeMacDest"
-                BrandValue("^^IdC" + MACDest.Text.Replace("-", ""))
+                Dim sendCommand As String = "^^IdC" + MACDest.Text.Replace("-", "")
+                BrandValue(sendCommand)
                 MACDest.Enabled = False
             Case "BTNChangeMacInt"
                 BrandValue("^^IdM" + MACInternal.Text.Replace("-", ""))
                 MACInternal.Enabled = False
             Case "BTNChangePort"
-                BrandValue("^^IdT" + Hex(Val(TBPort.Text)).PadLeft(4, "0"))
-                TBPort.ReadOnly = True
-                LBLinfo.Text = ""
+
+                ChangedPort(TBPort, False)
+
             Case "BTNChangeUid"
                 BrandValue("^^IdU" + TBUN.Text.PadLeft(12, "0"))
                 TBUN.ReadOnly = True
@@ -646,31 +823,42 @@ Public Class ELCForm1
         Help.ShowHelp(Me, Application.StartupPath & "\ELConfig Manual.chm")
     End Sub
 
-    Private Sub TSPort_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
-        If e.KeyChar = Chr(13) Or e.KeyChar = Chr(10) Then ChangedPort()
+    Private Sub TSPort_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles TSPort.KeyPress
+        If e.KeyChar = Chr(13) Or e.KeyChar = Chr(10) Then ChangedPort(sender, True)
     End Sub
 
-    Private Sub ChangedPort() Handles TSPort.LostFocus
-        AutomaticSetupToolStripMenuItem.HideDropDown()
+    Private Sub ChangedPort(ByVal sender As Object, ByVal pressAlt As Boolean)
 
+        Try
+            Integer.Parse(sender.Text)
+        Catch ex As Exception
+            MessageBox.Show("Incorrect port - must be numbers only")
+            Return
+        End Try
 
+        If sender.Text = "6699" Then
 
-        If Val(TSPort.Text) = 0 Or Val(TSPort.Text) > 65565 Then
-            MsgBox("Port value must be a whole number between 0 and 65565.")
-            ' ElseIf Val(TBPort.Text) = nListeningPort Then
-        ElseIf Val(TSPort.Text = nListeningPort) Then
-        Else
-            Dim nOldPort As Integer = nListeningPort
-            My.Settings.ListenPort = Val(TSPort.Text)
-            nListeningPort = Val(TSPort.Text)
-            Dim msResult As MsgBoxResult = MsgBox("Changing the port requires the program to restart. Restart now?", MsgBoxStyle.YesNo, "Restart Required")
-            If msResult = MsgBoxResult.Yes Then
-                Application.Restart()
-            Else
-                MsgBox("This program will use port " + TSPort.Text + " the next time it runs, but will continue to listen on port " + nOldPort.ToString + " for now")
-            End If
+            BrandValue("^^IdT" + Hex(Val(sender.Text)).PadLeft(4, "0"))
+            If pressAlt Then SendKeys.SendWait("%")
+            waitFor(50)
+            BTNRefresh_Click(New Object(), New EventArgs())
+            Exit Sub
 
         End If
+
+        BrandValue("^^IdT" + Hex(Val(sender.Text)).PadLeft(4, "0"))
+        UdpReceiver.newPort = sender.Text
+        UdpReceiver.listening = False
+        TBPort.ReadOnly = True
+        LBLinfo.Text = ""
+        waitFor(300)
+        EthernetLinkPing()
+        TBPort.Text = sender.Text
+
+        If pressAlt Then SendKeys.SendWait("%")
+        waitFor(50)
+        BTNRefresh_Click(New Object(), New EventArgs())
+
     End Sub
 
 
@@ -934,13 +1122,13 @@ Public Class ELCForm1
         dgvPhoneData.Rows.Clear()
     End Sub
 
-    Private Sub ToolStripMenuItem3_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripMenuItem3.Click
+    Private Sub ToolStripMenuItem3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem3.Click
         BrandValue("^^Id-N0000007705" + vbCrLf)
         Sleep(100)
         BrandValue("^^Id-V")
     End Sub
 
-    Private Sub ToolStripMenuItem4_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripMenuItem4.Click
+    Private Sub ToolStripMenuItem4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem4.Click
         BrandValue("^^Id-N0000007709" + vbCrLf)
         Sleep(100)
         BrandValue("^^Id-V")
@@ -983,7 +1171,7 @@ Public Class ELCForm1
             myUdpRepeater.Send(dataToSend, dataToSend.Length)
 
             myUdpRepeater.Close()
-            
+
         Catch ex As Exception
 
             MsgBox("Exceptions: " + ex.ToString, vbOKOnly, "Exception Thrown")
@@ -991,29 +1179,30 @@ Public Class ELCForm1
         End Try
 
     End Sub
-    
-    Private Sub timerSendUpdate_Tick(sender As System.Object, e As System.EventArgs) Handles timerSendUpdate.Tick
-        
-            Dim sendString As String = "<1>" + CBDetectedUnits.Text + "</1>"
-            sendString += "<2>" + TBSN.Text + "</2>"
-            sendString += "<3>" + TBUN.Text + "</3>"
-            sendString += "<4>" + IPInternal.Text + "</4>"
-            sendString += "<5>" + MACInternal.Text + "</5>"
-            sendString += "<6>" + TBPort.Text + "</6>"
-            sendString += "<7>" + IPDest.Text + "</7>"
-            sendString += "<8>" + MACDest.Text + "</8>"
-            sendString += "<9>" + getMyIP() + "</9>"
 
-            udpRepeat(sendString)
+    Private Sub timerSendUpdate_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles timerSendUpdate.Tick
+
+        Dim sendString As String = "<1>" + CBDetectedUnits.Text + "</1>"
+        sendString += "<2>upgraded ELConfig</2>"
+        sendString += "<3>" + TBUN.Text + "</3>"
+        sendString += "<4>" + IPInternal.Text + "</4>"
+        sendString += "<5>" + MACInternal.Text + "</5>"
+        sendString += "<6>" + TBPort.Text + "</6>"
+        sendString += "<7>" + IPDest.Text + "</7>"
+        sendString += "<8>" + MACDest.Text + "</8>"
+        sendString += "<9>" + getMyIP() + "</9>"
+        sendString += "<10>" + lbDeluxeUnit.Text + "</10>"
+        sendString += "<11>" + lbListeningOn.Text + "</11>"
+        udpRepeat(sendString)
 
     End Sub
 
-    Private Sub tech_change(sender As System.Object, e As System.EventArgs) Handles rbTech1.Click, rbTech2.Click, rbTech3.Click
+    Private Sub tech_change(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbTech1.Click, rbTech2.Click, rbTech3.Click
 
         Dim myResponse As MsgBoxResult = MsgBox("This option sends raw data to a CallerID.com technician but only if they establish the connection. Are you in contact with a CallerID.com representative?", vbYesNo, "Connect")
 
         udpRepeatCode = InputBox("Enter code supplied by CallerID.com:", "Enter Code", "")
-        
+
         If myResponse = vbYes Then
 
             If sender.Equals(rbTech1) Then
@@ -1037,7 +1226,7 @@ Public Class ELCForm1
                 rbTech3.Checked = True
                 rbTechNone.Checked = False
             End If
-            
+
         Else
 
             rbTech1.Checked = False
@@ -1049,35 +1238,84 @@ Public Class ELCForm1
 
     End Sub
 
-    Private Sub rbTechNone_Click(sender As System.Object, e As System.EventArgs) Handles rbTechNone.Click
+    Private Sub rbTechNone_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbTechNone.Click
         rbTech1.Checked = False
         rbTech2.Checked = False
         rbTech3.Checked = False
         rbTechNone.Checked = True
     End Sub
 
-    Private Sub ToolStripMenuItem5_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripMenuItem5.Click
+    Private Sub ToolStripMenuItem5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem5.Click
         BrandValue("^^Id-N0000007711" + vbCrLf)
         Sleep(100)
         BrandValue("^^Id-V")
     End Sub
 
-    Private Sub ToolStripMenuItem6_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripMenuItem6.Click
+    Private Sub ToolStripMenuItem6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem6.Click
         BrandValue("^^Id-N0000007715" + vbCrLf)
         Sleep(100)
         BrandValue("^^Id-V")
     End Sub
 
-    Private Sub ToolStripMenuItem7_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripMenuItem7.Click
+    Private Sub ToolStripMenuItem7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem7.Click
         BrandValue("^^Id-N0000007719" + vbCrLf)
         Sleep(100)
         BrandValue("^^Id-V")
     End Sub
 
-    Private Sub ToolStripMenuItem8_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripMenuItem8.Click
+    Private Sub ToolStripMenuItem8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItem8.Click
         BrandValue("^^Id-N0000007721" + vbCrLf)
         Sleep(100)
         BrandValue("^^Id-V")
     End Sub
+
+    Private Sub SetDeluxeUnitToBasicUnitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SetDeluxeUnitToBasicUnitToolStripMenuItem.Click
+
+        BrandValue("^^Id-a")
+        waitFor(100)
+        BrandValue("^^Id-E")
+        waitFor(100)
+        BrandValue("^^Id-C")
+        waitFor(100)
+        BrandValue("^^Id-X")
+        waitFor(100)
+        BrandValue("^^Id-U")
+        waitFor(100)
+        BrandValue("^^Id-K")
+        waitFor(100)
+        BrandValue("^^Id-S")
+        waitFor(100)
+        BrandValue("^^Id-B")
+        waitFor(100)
+        BrandValue("^^Id-D")
+        waitFor(100)
+        BrandValue("^^Id-O")
+        waitFor(100)
+        BrandValue("^^Id-T")
+        waitFor(100)
+        BrandValue("^^Id-a")
+        waitFor(100)
+        BrandValue("^^Id-V")
+        waitFor(500)
+
+        If setToDeluxe Then
+            MessageBox.Show("Deluxe Unit now set to Basic Output Format.", "Deluxe Unit Set", MessageBoxButtons.OK)
+        Else
+            MessageBox.Show("Error:  Cannot set format, contact CallerID.com rep.", "Deluxe Unit NOT Set", MessageBoxButtons.OK)
+        End If
+
+    End Sub
+
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+
+        Timer1.Stop()
+        If TBUN.Text.Contains("?") Then
+            FrmNoUnitsFoundTroubleShooting.Show()
+        End If
+
+        'TSPort.Text = UdpReceiver.boundPort.ToString
+
+    End Sub
+
 End Class
 

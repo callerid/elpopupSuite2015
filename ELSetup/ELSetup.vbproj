@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Classes\ClsTopMostMessageBox.vb" />
     <Compile Include="Forms\AboutBox1.Designer.vb">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </Compile>
@@ -127,11 +128,35 @@
     </Compile>
     <Compile Include="Classes\CIDRecord.vb" />
     <Compile Include="Classes\ELCBroadcaster.vb" />
+    <Compile Include="Forms\CustomMessageBox.Designer.vb">
+      <DependentUpon>CustomMessageBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomMessageBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ELCForm1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ELCForm1.Designer.vb">
       <DependentUpon>ELCForm1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm8LineMoreInfo.Designer.vb">
+      <DependentUpon>Frm8LineMoreInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm8LineMoreInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmNoUnitsFoundTroubleShooting.Designer.vb">
+      <DependentUpon>FrmNoUnitsFoundTroubleShooting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmNoUnitsFoundTroubleShooting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmOver8Lines.Designer.vb">
+      <DependentUpon>FrmOver8Lines.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmOver8Lines.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
@@ -156,9 +181,21 @@
       <DependentUpon>AboutBox1.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomMessageBox.resx">
+      <DependentUpon>CustomMessageBox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ELCForm1.resx">
       <DependentUpon>ELCForm1.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm8LineMoreInfo.resx">
+      <DependentUpon>Frm8LineMoreInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmNoUnitsFoundTroubleShooting.resx">
+      <DependentUpon>FrmNoUnitsFoundTroubleShooting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmOver8Lines.resx">
+      <DependentUpon>FrmOver8Lines.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

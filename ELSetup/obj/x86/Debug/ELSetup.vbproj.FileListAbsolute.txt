@@ -50,7 +50,6 @@ F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.ex
 F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.pdb
 F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\ELConfig.xml
 F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\bin\x86\Debug\IPControlsClass.dll
-F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELSetup.vbprojResolveAssemblyReference.cache
 F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.AboutBox1.resources
 F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.ELCForm1.resources
 F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.Resources.resources
@@ -78,3 +77,11 @@ C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.exe
 C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.xml
 C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ELConfig.pdb
 C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ELSetup.vbprojResolveAssemblyReference.cache
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.Frm8LineMoreInfo.resources
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.FrmOver8Lines.resources
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.FrmNoUnitsFoundTroubleShooting.resources
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.Frm8LineMoreInfo.resources
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.FrmNoUnitsFoundTroubleShooting.resources
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.FrmOver8Lines.resources
+F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELSetup.vbprojResolveAssemblyReference.cache
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.CustomMessageBox.resources

@@ -160,6 +160,12 @@ Public Class EthernetLinkDevice
         Dim ix As Integer
         ix = InStr(sData, "<" + sLetter.ToUpper + ">")
         sData = sData.Substring(ix + 2, nLength)
+        If (sLetter = "C") Then
+            Return CIDFunctions.MAC_Decode(sData)
+        End If
+        If (sLetter = "T") Then
+            Return CIDFunctions.UNIT_T_PORT_Decoder(sData)
+        End If
         Return CIDFunctions.UID_Decoder(sData)
     End Function
 #End Region
@@ -196,6 +202,26 @@ Module CIDFunctions
         sCallerID = "0" + nLine.ToString + " I S " + nDuration.ToString.PadLeft(4, "0") + " G A2 12/25 " + _
         sTime + " AM " + sPhoneNumber + " " + sName.PadRight(15, " ")
         Return sCallerID
+    End Function
+
+    Public Function MAC_Decode(ByVal sData As String) As String
+
+        Dim rtn As String = ""
+        For Each c As Char In sData.ToCharArray()
+
+            Dim num = Asc(c)
+            Dim part = Hex(num)
+
+            If part.Length = 1 Then
+                part = "0" + part
+            End If
+
+            rtn += part
+
+        Next
+
+        Return rtn
+
     End Function
 
     Private Function FakeNameGenerator() As String
@@ -345,6 +371,20 @@ Module CIDFunctions
         caDecoded = UnitID.ToCharArray
         For Each cBit As Char In caDecoded
             nNumeric = AscW(cBit)
+            sDecoded = sDecoded + Hex(nNumeric).PadLeft(2, "0")
+        Next
+        Return sDecoded
+    End Function
+
+    Public Function UNIT_T_PORT_Decoder(ByVal port As String)
+
+        Dim sDecoded As String = ""
+        Dim caDecoded As Char()
+        Dim nNumeric As Integer
+
+        caDecoded = port.ToCharArray
+        For Each cBit As Char In caDecoded
+            nNumeric = Asc(cBit)
             sDecoded = sDecoded + Hex(nNumeric).PadLeft(2, "0")
         Next
         Return sDecoded
