@@ -4,7 +4,7 @@
   <description asmv2:iconFile="ELC48.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="ELConfig" version="2.7.0.0" language="neutral" processorArchitecture="x86" />
+    <assemblyIdentity name="ELConfig" version="2.7.3.0" language="neutral" processorArchitecture="x86" />
     <commandLine file="ELConfig.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ELConfig.exe" size="386048">
-      <assemblyIdentity name="ELConfig" version="2.7.0.0" language="neutral" processorArchitecture="x86" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ELConfig.exe" size="399872">
+      <assemblyIdentity name="ELConfig" version="2.7.3.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>IlK5YoqO2qNWAM/RtHAGvz1vrYg=</dsig:DigestValue>
+        <dsig:DigestValue>8UOBISTLDpFREp/dIQxp39yc0Bg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

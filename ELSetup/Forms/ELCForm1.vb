@@ -23,6 +23,10 @@ Public Class ELCForm1
     Private searchingForUnit As Boolean = False
     Public endSearchAndExit As Boolean = False
     Private loadingIn As Boolean = True
+    Public NumberOfDuplicates As Integer = 1
+    Public SendingVCommands As Boolean = False
+
+    Private dups As List(Of String)
 
 #Region "Dimensions"
     Private Broadcast As ELCBroadcaster
@@ -78,6 +82,8 @@ Public Class ELCForm1
     End Class
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        dups = New List(Of String)
 
         Dim chkMutex As myMutex = New myMutex
         'Check for FoneTracs, AKA "SmartCall"
@@ -206,6 +212,7 @@ Public Class ELCForm1
 
         If sReceivedText.Length = 57 Then
             vCommandReturned = True
+            SendingVCommands = False
             updateDeluxedLabel(True)
         End If
 
@@ -216,6 +223,7 @@ Public Class ELCForm1
 
             Dim ELink As New EthernetLinkDevice
             ELink.ImportData(sReceivedText, sReceivedTextUTF7)
+            DisplayNumberOfDups(ELink.NumberOfDuplicates)
 
             'Add new setup information to list
             Dim FMcount As Integer = -1
@@ -395,19 +403,19 @@ Public Class ELCForm1
     MACDest.MouseEnter, MACInternal.MouseEnter, IPDest.MouseEnter, IPInternal.MouseEnter, TBPort.MouseEnter, TBUN.MouseEnter, TSConnectedUnits.MouseEnter, CBDetectedUnits.MouseEnter, ResetNetworkToolStripMenuItem.MouseEnter, ResetUnitToolStripMenuItem.MouseEnter
         Select Case sender.Tag
             Case "ipdest"
-                infoBox("Destination IP", "This is the address of the device that the Whozz Calling? will send data to." + vbCrLf + vbCrLf + "255.255.255.255 is a universal address that applies to every computer on the network.")
+                'infoBox("Destination IP", "This is the address of the device that the Whozz Calling? will send data to." + Environment.NewLine + Environment.NewLine + "255.255.255.255 is a universal address that applies to every computer on the network.")
             Case "ipint"
-                infoBox("Internal IP", "This is the address of the Whozz Calling? device itself." + vbCrLf + vbCrLf + "it is sometimes necessary for this address to be on the same subnet as the rest of your network.")
+                'infoBox("Internal IP", "This is the address of the Whozz Calling? device itself." + Environment.NewLine + Environment.NewLine + "it is sometimes necessary for this address to be on the same subnet as the rest of your network.")
             Case "macdest"
-                infoBox("Destination MAC", "This is the physical address of the device that the Whozz Calling? will send data to." + vbCrLf + vbCrLf + "FF-FF-FF-FF-FF-FF is a universal address that works when the physical address is unknown or not applicable.")
+                'infoBox("Destination MAC", "This is the physical address of the device that the Whozz Calling? will send data to." + Environment.NewLine + Environment.NewLine + "FF-FF-FF-FF-FF-FF is a universal address that works when the physical address is unknown or not applicable.")
             Case "macint"
-                infoBox("Internal MAC", "This is the physical address of the Whozz Calling? device itself." + vbCrLf + vbCrLf + "This should not be changed under normal conditions. If it must be changed, make certain the first digit remains '06' so that managed network switches will route the data correctly")
+                'infoBox("Internal MAC", "This is the physical address of the Whozz Calling? device itself." + Environment.NewLine + Environment.NewLine + "This should not be changed under normal conditions. If it must be changed, make certain the first digit remains '06' so that managed network switches will route the data correctly")
             Case "uid"
-                infoBox("Unit ID Number", "The Unit Number helps differentiate between multiple units on the same network." + vbCrLf + vbCrLf + "ELPopup ignores this value, but it may be required for other third party applications.")
+                'infoBox("Unit ID Number", "The Unit Number helps differentiate between multiple units on the same network." + Environment.NewLine + Environment.NewLine + "ELPopup ignores this value, but it may be required for other third party applications.")
             Case "sn"
                 infoBox("Serial Number", "The Serial Number is unique to each unit, and broadcasted with every unit packet. It cannot be changed.")
             Case "port"
-                infoBox("Port", "This is the port number on which the Whozz Calling? sends data on." + vbCrLf + vbCrLf + "Warning: Changing the port will interrupt communication with the Ethernet Link device. Only change the port if it is necessary to do so." + vbCrLf + vbCrLf + "To change this program's listening port, select Configure > Listening Port, then change the port number.")
+                'infoBox("Port", "This is the port number on which the Whozz Calling? sends data on." + Environment.NewLine + Environment.NewLine + "Warning: Changing the port will interrupt communication with the Ethernet Link device. Only change the port if it is necessary to do so." + Environment.NewLine + Environment.NewLine + "To change this program's listening port, select Configure > Listening Port, then change the port number.")
             Case "reseteth"
                 infoBox("Network Reset", "Loads all the network defaults into the Whozz Calling? except MAC address and Serial Number.")
             Case "resetunit"
@@ -433,8 +441,8 @@ Public Class ELCForm1
 
 #Region "Subs"
     Public Overloads Sub infoBox(ByVal title As String, Optional ByVal info As String = "")
-        If title.Length > 0 Then GBInfo.Text = "Info" + " (" + title + ")" Else GBInfo.Text = "Info"
-        LBLinfo.Text = info
+        'If title.Length > 0 Then GBInfo.Text = "Info" + " (" + title + ")" Else GBInfo.Text = "Info"
+        'LBLinfo.Text = info
     End Sub
     Public Overloads Sub infoBox()
         If devMode Then
@@ -489,6 +497,26 @@ Public Class ELCForm1
 
     End Sub
 
+    Public Delegate Sub DisplayNumberOfDups_Delegate(ByVal num As Integer)
+    Public Sub DisplayNumberOfDups(ByVal num As Integer)
+        If Me.InvokeRequired Then
+            Dim d As New DisplayNumberOfDups_Delegate(AddressOf DisplayNumberOfDups)
+            Me.Invoke(d, New Object() {num})
+        Else
+            NumberOfDuplicates = num
+            If Not (num > 0 And num < 21) Then
+                lbNumberOfDuplicates.Visible = False
+                Exit Sub
+            Else
+                lbNumberOfDuplicates.Text = "# of Dups: " + num.ToString()
+                lbNumberOfDuplicates.Visible = True
+            End If
+
+        End If
+
+    End Sub
+
+
     Public Sub AddPacketLine(ByVal textString As String, ByVal textStringUTF7 As String)
         If dgvCommData.InvokeRequired Then
             Dim d As New IncomingData_Delegate(AddressOf AddPacketLine)
@@ -525,6 +553,29 @@ Public Class ELCForm1
             ' Define mathces
             Dim detailedMatch As Match
             Dim regCallMatch As Match
+
+            If ckbIgnoreDups.Checked Then
+
+                If dups.Contains(textString) Then
+
+                    Exit Sub
+
+                Else
+
+                    If dups.Count > 40 Then
+
+                        dups.RemoveAt(0)
+                        dups.Add(textString)
+
+                    Else
+
+                        dups.Add(textString)
+
+                    End If
+
+                End If
+
+            End If
 
             ' Match for detailed record
             detailedMatch = Regex.Match(textString, ".*(\d\d) ([NFR]) {13}(\d\d/\d\d \d\d:\d\d:\d\d)(.*)")
@@ -727,7 +778,7 @@ Public Class ELCForm1
 
     End Sub
 
-    Private Sub BrandValue(ByVal sValue As String)
+    Public Sub BrandValue(ByVal sValue As String)
         Debug.WriteLine(sValue)
         If sValue.Length = 0 Then Exit Sub
         If InStr(sValue, "?") > 0 And InStr(sValue, "Id-") = 0 Then Exit Sub
@@ -850,7 +901,7 @@ Public Class ELCForm1
         UdpReceiver.newPort = sender.Text
         UdpReceiver.listening = False
         TBPort.ReadOnly = True
-        LBLinfo.Text = ""
+        'LBLinfo.Text = ""
         waitFor(300)
         EthernetLinkPing()
         TBPort.Text = sender.Text
@@ -1109,8 +1160,17 @@ Public Class ELCForm1
 
     Private Sub btnRetToggles_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRetToggles.Click
 
+        SendingVCommands = True
         Dim sendString As String = "^^Id-V"
-        BrandValue(sendString)
+
+        Dim tries As Integer = 10
+        While SendingVCommands And tries > 0
+
+            BrandValue(sendString)
+            tries -= 1
+            waitFor(200)
+
+        End While
 
     End Sub
 
@@ -1193,6 +1253,13 @@ Public Class ELCForm1
         sendString += "<9>" + getMyIP() + "</9>"
         sendString += "<10>" + lbDeluxeUnit.Text + "</10>"
         sendString += "<11>" + lbListeningOn.Text + "</11>"
+
+        Dim dups As Match = Regex.Match(lbNumberOfDuplicates.Text, "\d{1,2}")
+
+        If (dups.Success) Then
+            sendString += "<12>" + dups.Groups(0).Value.ToString() + "</12>"
+        End If
+
         udpRepeat(sendString)
 
     End Sub
@@ -1317,5 +1384,32 @@ Public Class ELCForm1
 
     End Sub
 
+    Private Sub SendDuplicateCallRecordsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SendDuplicateCallRecordsToolStripMenuItem.Click
+        FrmDuplicates.ShowDialog()
+    End Sub
+
+    Private Sub BTNChangeUid_MouseHover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BTNChangeUid.MouseHover
+        Me.ttUnitNumber.SetToolTip(BTNChangeUid, "The Unit Number helps differentiate between " + Environment.NewLine + "multiple units on the same network." + Environment.NewLine + Environment.NewLine + "ELPopup ignores this value, but it may be required " + Environment.NewLine + "for other third party applications.")
+    End Sub
+
+    Private Sub BTNChangeIpInt_MouseHover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BTNChangeIpInt.MouseHover
+        Me.ttUnitIP.SetToolTip(BTNChangeIpInt, "This is the address of the Whozz Calling? device itself." + Environment.NewLine + Environment.NewLine + "It is sometimes necessary for this address to be on the" + Environment.NewLine + "same subnet as the rest of your network.")
+    End Sub
+
+    Private Sub BTNChangeMacInt_MouseHover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BTNChangeMacInt.MouseHover
+        Me.ttUnitMac.SetToolTip(BTNChangeMacInt, "This is the physical address of the Whozz Calling? device itself." + Environment.NewLine + Environment.NewLine + "This should not be changed under normal conditions. If it must" + Environment.NewLine + "be changed, make certain the first digit remains '06' so that managed" + Environment.NewLine + "network switches will route the data correctly.")
+    End Sub
+
+    Private Sub BTNChangePort_MouseHover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BTNChangePort.MouseHover
+        Me.ttPort.SetToolTip(BTNChangePort, "This is the port number on which the Whozz Calling? sends data on." + Environment.NewLine + Environment.NewLine + "Warning: Changing the port will interrupt communication with the" + Environment.NewLine + "Ethernet Link device. Only change the port if it is necessary to do so." + Environment.NewLine + Environment.NewLine + "To change this program's listening port, select Configure > Listening Port," + Environment.NewLine + "then change the port number.")
+    End Sub
+
+    Private Sub BTNChangeIpDest_MouseHover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BTNChangeIpDest.MouseHover
+        Me.ttDestIP.SetToolTip(BTNChangeIpDest, "This is the address of the device that the Whozz Calling? will send data to." + Environment.NewLine + Environment.NewLine + "255.255.255.255 is a universal address that applies to every computer on the network.")
+    End Sub
+
+    Private Sub BTNChangeMacDest_MouseHover(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BTNChangeMacDest.MouseHover
+        Me.ttDestMAC.SetToolTip(BTNChangeMacDest, "This is the physical address of the device that the Whozz Calling? will send data to." + Environment.NewLine + Environment.NewLine + "FF-FF-FF-FF-FF-FF is a universal address that works when the " + Environment.NewLine + "physical address is unknown or not applicable.")
+    End Sub
 End Class
 

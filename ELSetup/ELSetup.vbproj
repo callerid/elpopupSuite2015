@@ -147,6 +147,12 @@
     <Compile Include="Forms\Frm8LineMoreInfo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\FrmDuplicates.Designer.vb">
+      <DependentUpon>FrmDuplicates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDuplicates.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FrmNoUnitsFoundTroubleShooting.Designer.vb">
       <DependentUpon>FrmNoUnitsFoundTroubleShooting.vb</DependentUpon>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm8LineMoreInfo.resx">
       <DependentUpon>Frm8LineMoreInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDuplicates.resx">
+      <DependentUpon>FrmDuplicates.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmNoUnitsFoundTroubleShooting.resx">
       <DependentUpon>FrmNoUnitsFoundTroubleShooting.vb</DependentUpon>

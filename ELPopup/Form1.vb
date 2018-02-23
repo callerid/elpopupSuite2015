@@ -7,6 +7,7 @@ Public Class Form1
 
     Public usingCompTime
     Public sortAscendDuration As Boolean = False
+    Public previousReceptions As List(Of String) = New List(Of String)
 
 #Region "Properties"
 
@@ -283,10 +284,46 @@ Public Class Form1
             TrayIcon.ShowBalloonTip(1, messageTitle, messageText, ToolTipIcon.Info)
         End If
     End Sub
+
+    Private Sub removeReceptionFromBuffer(ByVal reception As String)
+
+        Dim indexes As List(Of Integer) = New List(Of Integer)
+        Dim cnt As Integer = 0
+
+        For Each rec As String In previousReceptions
+
+            If rec.Contains(reception.Substring(reception.Length - 20)) Then
+                indexes.Add(cnt)
+            End If
+            cnt += 1
+
+        Next
+
+        For i As Integer = indexes.Count - 1 To 0 Step -1
+            previousReceptions.RemoveAt(indexes(i))
+        Next
+
+    End Sub
+
     Private Sub DataHandler(ByVal sDataText As String)
 
         Dim uid As String
         Dim record As New CIDRecord(sDataText)
+
+        If (previousReceptions.Contains(sDataText)) Then
+            Exit Sub
+        Else
+            If (previousReceptions.Count > 30) Then
+                previousReceptions.Add(sDataText)
+                previousReceptions.RemoveAt(0)
+            Else
+                previousReceptions.Add(sDataText)
+            End If
+        End If
+
+        If (Not record.IsDetailed And Not record.CallStart) Then
+            removeReceptionFromBuffer(sDataText)
+        End If
 
         ' Added 12/3/2013 - option for using computer time
         If My.Settings.useCompTime = True Then

@@ -125,6 +125,7 @@ Public Class EthernetLinkDevice
     Public IntMac As String
     Public IntPort As String
     Public DestPort As String
+    Public NumberOfDuplicates As Integer
 #End Region
 
 #Region "Methods"
@@ -144,7 +145,7 @@ Public Class EthernetLinkDevice
         'DestIP
         DestIP = IPFromHex(IDX_extractor("D", sData, 4))
         'IntIP
-        IntIP = IPFromHex(IDX_extractor("I", sData, 4))
+        IntIP = IDX_extractor("I", sData, 4)
         'DestMac
         DestMac = IDX_extractor("C", sData, 6)
         'IntMac
@@ -153,6 +154,8 @@ Public Class EthernetLinkDevice
         DestPort = Str(Convert.ToInt32(IDX_extractor("T", sData, 2), 16))
         'IntPort
         IntPort = Str(Convert.ToInt32(IDX_extractor("P", sData, 2), 16))
+        ' Num of dups
+        NumberOfDuplicates = IDX_extractor("O", sDataUTF7, 1)
 
     End Sub
 
@@ -166,8 +169,22 @@ Public Class EthernetLinkDevice
         If (sLetter = "T") Then
             Return CIDFunctions.UNIT_T_PORT_Decoder(sData)
         End If
+        If (sLetter = "I") Then
+            ix = InStr(sData, "<I>")
+            Return UNIT_IP_Decoder(sData.Substring(ix, 4))
+        End If
+        If (sLetter = "O") Then
+            Return ConvertAsciiToInt(sData)
+        End If
         Return CIDFunctions.UID_Decoder(sData)
     End Function
+
+    Private Function ConvertAsciiToInt(ByVal s As String)
+
+        Return Asc(s)
+
+    End Function
+
 #End Region
 
 End Class
@@ -402,6 +419,24 @@ Module CIDFunctions
 
         Return sHexCode
     End Function
+
+    Public Function UNIT_IP_Decoder(ByVal sData As String) As String
+
+        Dim ip(4) As String
+        Dim hex(4) As String
+        hex(0) = sData.Substring(0, 1)
+        hex(1) = sData.Substring(1, 1)
+        hex(2) = sData.Substring(2, 1)
+        hex(3) = sData.Substring(3, 1)
+
+        For i = 0 To 3
+            ip(i) = Asc(hex(i))
+        Next
+
+        Return ip(0) + "." + ip(1) + "." + ip(2) + "." + ip(3)
+
+    End Function
+
     Public Function IPFromHex(ByVal sHex As String)
         Dim sSubHex As String
         Dim sIP As String = ""
@@ -413,4 +448,5 @@ Module CIDFunctions
         Loop
         Return sIP
     End Function
+
 End Module

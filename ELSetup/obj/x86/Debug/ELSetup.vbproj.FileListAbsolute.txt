@@ -85,3 +85,4 @@ F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.
 F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.FrmOver8Lines.resources
 F:\Projects\Visual Studio Projects\ELPopup2015\ELSetup\obj\x86\Debug\ELSetup.vbprojResolveAssemblyReference.cache
 C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.CustomMessageBox.resources
+C:\Users\spenl\Desktop\ELPopup2015\ELSetup\obj\x86\Debug\ElderwoodC.FrmDuplicates.resources
